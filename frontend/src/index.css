@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #0a0a0a;
+    background-color: #ffffff;
+    line-height: 1.6;
+  }
+
+  ::selection {
+    background-color: #0a0a0a;
+    color: #ffffff;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-5 sm:px-8 lg:px-16 xl:px-24 2xl:px-32;
+  }
+
+  .container-argos {
+    @apply max-w-[1440px] mx-auto;
+  }
+
+  .eyebrow {
+    @apply text-[0.6875rem] font-medium tracking-[0.15em] uppercase text-argos-gray;
+  }
+
+  .heading-display {
+    @apply font-heading font-bold tracking-tight leading-[1.05];
+  }
+
+  .heading-section {
+    @apply font-heading font-semibold tracking-tight;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .border-argos {
+    @apply border border-argos-gray-lighter;
+  }
+
+  .link-underline {
+    @apply relative inline-block;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-px bg-current transition-all duration-300;
+  }
+
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+
+  .grid-argos {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-argos-gray-lighter;
+  }
+
+  .card-argos {
+    @apply bg-white p-6 sm:p-8 transition-colors duration-300 hover:bg-argos-gray-lightest;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-argos-black text-white text-xs font-medium tracking-[0.1em] uppercase transition-all duration-300 hover:bg-argos-charcoal;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 border border-argos-black text-argos-black text-xs font-medium tracking-[0.1em] uppercase transition-all duration-300 hover:bg-argos-black hover:text-white;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 text-xs font-medium tracking-[0.1em] uppercase transition-colors duration-300 hover:text-argos-gray;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Custom scrollbar for admin */
+.admin-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.admin-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.admin-scroll::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}

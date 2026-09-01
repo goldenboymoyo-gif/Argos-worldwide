@@ -1,0 +1,81 @@
+import { useState, useEffect } from 'react'
+import { Eye, X } from 'lucide-react'
+import { apiFetch } from '../lib/api'
+
+export default function Mandates() {
+  const [mandates, setMandates] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [selected, setSelected] = useState(null)
+
+  useEffect(() => {
+    apiFetch('/mandates')
+      .then((d) => setMandates(d.mandates || d || []))
+      .catch(() => {})
+      .finally(() => setLoading(false))
+  }, [])
+
+  return (
+    <div>
+      <h1 className="text-white text-xl font-semibold mb-1">Mandates</h1>
+      <p className="text-gray-500 text-sm mb-8">Submitted mandate requests</p>
+
+      {selected && (
+        <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4" onClick={() => setSelected(null)}>
+          <div className="bg-[#111] border border-[#222] w-full max-w-lg p-6 max-h-[80vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between mb-5">
+              <h2 className="text-white text-sm font-medium">Mandate Details</h2>
+              <button onClick={() => setSelected(null)} className="text-gray-500 hover:text-white"><X size={16} /></button>
+            </div>
+            <div className="space-y-3">
+              {Object.entries(selected).filter(([k]) => !['id', 'createdAt', 'updatedAt'].includes(k)).map(([key, val]) => (
+                <div key={key} className="flex justify-between text-sm">
+                  <span className="text-gray-500 uppercase text-xs tracking-wider">{key}</span>
+                  <span className="text-gray-300 text-right ml-4">{String(val)}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {loading ? (
+        <div className="text-gray-600 text-sm">Loading...</div>
+      ) : mandates.length === 0 ? (
+        <div className="text-gray-600 text-sm">No mandates submitted yet.</div>
+      ) : (
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-[#222]">
+                <th className="text-left text-gray-500 text-xs uppercase tracking-wider font-medium py-3 px-3">Date</th>
+                <th className="text-left text-gray-500 text-xs uppercase tracking-wider font-medium py-3 px-3">Name</th>
+                <th className="text-left text-gray-500 text-xs uppercase tracking-wider font-medium py-3 px-3">Company</th>
+                <th className="text-left text-gray-500 text-xs uppercase tracking-wider font-medium py-3 px-3">Commodity</th>
+                <th className="text-left text-gray-500 text-xs uppercase tracking-wider font-medium py-3 px-3">Status</th>
+                <th className="text-right text-gray-500 text-xs uppercase tracking-wider font-medium py-3 px-3">Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              {mandates.map((m) => (
+                <tr key={m.id} className="border-b border-[#1a1a1a] hover:bg-[#111]">
+                  <td className="py-3 px-3 text-gray-400">{new Date(m.createdAt).toLocaleDateString()}</td>
+                  <td className="py-3 px-3 text-white">{m.name || m.contactName}</td>
+                  <td className="py-3 px-3 text-gray-300">{m.company}</td>
+                  <td className="py-3 px-3 text-gray-300">{m.commodity}</td>
+                  <td className="py-3 px-3">
+                    <span className="text-[10px] uppercase tracking-wider text-gray-400 bg-[#1a1a1a] px-2 py-1">{m.status || 'new'}</span>
+                  </td>
+                  <td className="py-3 px-3 text-right">
+                    <button onClick={() => setSelected(m)} className="text-gray-500 hover:text-white">
+                      <Eye size={14} />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  )
+}
