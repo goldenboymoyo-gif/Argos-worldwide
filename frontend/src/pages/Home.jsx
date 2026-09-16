@@ -225,6 +225,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── 03B OUR STORY ── */}
+      <section className="section-padding py-20 lg:py-28 bg-argos-black text-white">
+        <div className="container-argos">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div>
+              <p className="eyebrow !text-argos-gray-light mb-4">About Argos</p>
+              <h2 className="font-heading font-bold text-2xl sm:text-3xl lg:text-[2.5rem] tracking-tight leading-[1.1] mb-6">
+                OUR STORY
+              </h2>
+              <p className="text-argos-gray text-base leading-relaxed mb-4">
+                Global commodity trading moves the energy, metals, minerals, and agricultural products that economies run on, yet the industry remains remarkably fragmented.
+              </p>
+              <p className="text-argos-gray text-base leading-relaxed mb-8">
+                Argos bridges the gap between commodity buyers and the global supplier base through technology, market intelligence, and human brokerage.
+              </p>
+              <Link to="/about/story" className="text-xs font-medium tracking-[0.1em] uppercase text-white hover:text-argos-accent transition-colors inline-flex items-center gap-2">
+                Read our story
+              </Link>
+            </div>
+            <div className="relative">
+              <img
+                src="/images/home/hero-cargo.jpg"
+                alt="Cargo operations"
+                className="w-full h-[300px] sm:h-[380px] lg:h-[440px] object-cover rounded"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-argos-black/60 to-transparent rounded" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── 04 WHAT WE DO ── */}
       <section className="section-padding py-20 lg:py-28 bg-argos-gray-lightest">
         <div className="container-argos">

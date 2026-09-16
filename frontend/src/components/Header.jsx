@@ -1,4 +1,4 @@
-mport { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, ChevronDown } from 'lucide-react'
 
@@ -38,14 +38,8 @@ const navItems = [
     path: '/how-we-work',
   },
   {
-    label: 'About',
+    label: 'Our Story',
     path: '/about/story',
-    children: [
-      { label: 'Our Story', path: '/about/story' },
-      { label: 'Our Approach', path: '/about/approach' },
-      { label: 'Our People', path: '/about/people' },
-      { label: 'Ethics & Compliance', path: '/about/ethics' },
-    ],
   },
 
 ]
