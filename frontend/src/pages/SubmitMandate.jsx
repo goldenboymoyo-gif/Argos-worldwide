@@ -9,6 +9,9 @@ const unitOptions = ['MT', 'BBL', 'Tons', 'kg', 'Units', 'Cargo']
 const incotermsOptions = ['FOB', 'CIF', 'CFR', 'EXW', 'DAP', 'DDP', 'FCA']
 
 const initialForm = {
+  fullName: '',
+  contactEmail: '',
+  company: '',
   role: '',
   commodity: '',
   origin: '',
@@ -44,6 +47,9 @@ export default function SubmitMandate() {
     setError('')
     try {
       const formData = new FormData()
+      formData.append('fullName', form.fullName)
+      formData.append('contactEmail', form.contactEmail)
+      formData.append('company', form.company)
       formData.append('partyType', form.role)
       formData.append('commodity', form.commodity)
       formData.append('origin', form.origin)
@@ -168,6 +174,48 @@ export default function SubmitMandate() {
                   {error}
                 </div>
               )}
+
+              {/* Your Details */}
+              <div className="border-t border-argos-gray-lighter pt-8">
+                <h3 className="text-sm font-medium text-argos-black mb-5">Your Details</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label className={labelClass}>Full Name *</label>
+                    <input
+                      type="text"
+                      name="fullName"
+                      required
+                      value={form.fullName}
+                      onChange={handleChange}
+                      className={inputClass}
+                      placeholder="Your full name"
+                    />
+                  </div>
+                  <div>
+                    <label className={labelClass}>Email *</label>
+                    <input
+                      type="email"
+                      name="contactEmail"
+                      required
+                      value={form.contactEmail}
+                      onChange={handleChange}
+                      className={inputClass}
+                      placeholder="you@company.com"
+                    />
+                  </div>
+                </div>
+                <div className="mt-6">
+                  <label className={labelClass}>Company / Organisation</label>
+                  <input
+                    type="text"
+                    name="company"
+                    value={form.company}
+                    onChange={handleChange}
+                    className={inputClass}
+                    placeholder="Company name (optional)"
+                  />
+                </div>
+              </div>
 
               {/* Role */}
               <div>

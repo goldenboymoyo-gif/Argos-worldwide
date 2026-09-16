@@ -4,11 +4,14 @@ export const MandateModel = {
   async create(data) {
     const result = await query(
       `INSERT INTO mandates
-       (party_type, commodity, origin, destination, volume, unit, specification,
+       (full_name, contact_email, company, party_type, commodity, origin, destination, volume, unit, specification,
         delivery_window, incoterms, target_price, additional_info, status)
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, 'PENDING')
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, 'PENDING')
        RETURNING *`,
       [
+        data.fullName || null,
+        data.contactEmail || null,
+        data.company || null,
         data.partyType,
         data.commodity,
         data.origin,
@@ -48,6 +51,9 @@ export const MandateModel = {
 
   async update(id, data) {
     const allowed = [
+      'full_name',
+      'contact_email',
+      'company',
       'party_type',
       'commodity',
       'origin',

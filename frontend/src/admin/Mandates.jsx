@@ -27,10 +27,10 @@ export default function Mandates() {
               <button onClick={() => setSelected(null)} className="text-gray-500 hover:text-white"><X size={16} /></button>
             </div>
             <div className="space-y-3">
-              {Object.entries(selected).filter(([k]) => !['id', 'createdAt', 'updatedAt'].includes(k)).map(([key, val]) => (
+              {Object.entries(selected).filter(([k]) => !['id', 'createdAt', 'updatedAt', 'created_at', 'updated_at'].includes(k)).map(([key, val]) => (
                 <div key={key} className="flex justify-between text-sm">
-                  <span className="text-gray-500 uppercase text-xs tracking-wider">{key}</span>
-                  <span className="text-gray-300 text-right ml-4">{String(val)}</span>
+                  <span className="text-gray-500 uppercase text-xs tracking-wider">{key.replace(/_/g, ' ')}</span>
+                  <span className="text-gray-300 text-right ml-4">{String(val ?? '—')}</span>
                 </div>
               ))}
             </div>
@@ -50,6 +50,7 @@ export default function Mandates() {
                 <th className="text-left text-gray-500 text-xs uppercase tracking-wider font-medium py-3 px-3">Date</th>
                 <th className="text-left text-gray-500 text-xs uppercase tracking-wider font-medium py-3 px-3">Name</th>
                 <th className="text-left text-gray-500 text-xs uppercase tracking-wider font-medium py-3 px-3">Company</th>
+                <th className="text-left text-gray-500 text-xs uppercase tracking-wider font-medium py-3 px-3">Email</th>
                 <th className="text-left text-gray-500 text-xs uppercase tracking-wider font-medium py-3 px-3">Commodity</th>
                 <th className="text-left text-gray-500 text-xs uppercase tracking-wider font-medium py-3 px-3">Status</th>
                 <th className="text-right text-gray-500 text-xs uppercase tracking-wider font-medium py-3 px-3">Details</th>
@@ -59,8 +60,9 @@ export default function Mandates() {
               {mandates.map((m) => (
                 <tr key={m.id} className="border-b border-[#1a1a1a] hover:bg-[#111]">
                   <td className="py-3 px-3 text-gray-400">{new Date(m.created_at).toLocaleDateString()}</td>
-                  <td className="py-3 px-3 text-white">{m.name || m.contactName}</td>
-                  <td className="py-3 px-3 text-gray-300">{m.company}</td>
+                  <td className="py-3 px-3 text-white">{m.full_name || m.name || m.contactName || '—'}</td>
+                  <td className="py-3 px-3 text-gray-300">{m.company || '—'}</td>
+                  <td className="py-3 px-3 text-gray-300">{m.contact_email || '—'}</td>
                   <td className="py-3 px-3 text-gray-300">{m.commodity}</td>
                   <td className="py-3 px-3">
                     <span className="text-[10px] uppercase tracking-wider text-gray-400 bg-[#1a1a1a] px-2 py-1">{m.status || 'new'}</span>

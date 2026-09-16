@@ -10,6 +10,9 @@ import { sendNotification } from '../services/mailer.js'
 const router = Router()
 
 const validateMandate = [
+  body('fullName').isString().isLength({ max: 255 }).optional(),
+  body('contactEmail').isEmail().isLength({ max: 255 }).optional(),
+  body('company').isString().isLength({ max: 255 }).optional(),
   body('partyType').isString().isLength({ min: 1, max: 100 }),
   body('commodity').isString().isLength({ min: 1, max: 200 }),
   body('origin').isString().isLength({ min: 1, max: 200 }),
@@ -38,6 +41,9 @@ router.post(
 
       const body = req.body
       const mandate = await MandateModel.create({
+        fullName: sanitizeInput(body.fullName),
+        contactEmail: sanitizeInput(body.contactEmail),
+        company: sanitizeInput(body.company),
         partyType: sanitizeInput(body.partyType),
         commodity: sanitizeInput(body.commodity),
         origin: sanitizeInput(body.origin),
@@ -70,6 +76,9 @@ router.post(
         subject: `New mandate submitted: ${body.commodity}`,
         text: `New confidential mandate received via the website.\n\n` +
           `Reference: ${mandate.id}\n` +
+          `Name: ${body.fullName || '—'}\n` +
+          `Email: ${body.contactEmail || '—'}\n` +
+          `Company: ${body.company || '—'}\n` +
           `Party type: ${body.partyType}\n` +
           `Commodity: ${body.commodity}\n` +
           `Origin: ${body.origin}\n` +

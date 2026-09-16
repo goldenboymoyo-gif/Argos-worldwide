@@ -36,9 +36,9 @@ export const config = {
     max: process.env.RATE_MAX || 300,
   },
   mail: {
-    host: process.env.SMTP_HOST || '',
+    host: process.env.SMTP_HOST || 'smtp.gmail.com',
     port: Number(process.env.SMTP_PORT || 587),
-    user: process.env.SMTP_USER || '',
+    user: process.env.SMTP_USER || 'arthur@argosworldwide.com',
     pass: process.env.SMTP_PASS || '',
     from: process.env.SMTP_FROM || 'Argos Worldwide Website <no-reply@argosworldwide.com>',
     // Where contact/mandate submission notifications are sent.

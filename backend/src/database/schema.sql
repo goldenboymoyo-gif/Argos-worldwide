@@ -50,6 +50,9 @@ CREATE TABLE IF NOT EXISTS mandate_statuses (
 
 CREATE TABLE IF NOT EXISTS mandates (
   id SERIAL PRIMARY KEY,
+  full_name VARCHAR(255),
+  contact_email VARCHAR(255),
+  company VARCHAR(255),
   party_type VARCHAR(50),
   commodity VARCHAR(255) NOT NULL,
   origin VARCHAR(255),

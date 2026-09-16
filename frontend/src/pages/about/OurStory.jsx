@@ -1,7 +1,28 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import BackLink from '../../components/BackLink'
-import {  } from 'lucide-react'
+import { Mail } from 'lucide-react'
+
+const people = [
+  {
+    name: 'Arthur Blackwell',
+    role: 'Outreach',
+    email: 'arthur@argosworldwide.com',
+    photo: '/images/about/team/arthur.jpg',
+  },
+  {
+    name: 'Benjamin Norton',
+    role: 'Broker',
+    email: 'benjaminnorton96@gmail.com',
+    photo: '/images/about/team/benjamin.jpg',
+  },
+  {
+    name: 'Bright Moyo',
+    role: 'Technician',
+    email: 'goldenboymoyo@gmail.com',
+    photo: '/images/about/team/bright.jpg',
+  },
+]
 
 export default function OurStory() {
   return (
@@ -100,6 +121,52 @@ export default function OurStory() {
           <div className="max-w-3xl mt-10">
             <Link to="/about/approach" className="inline-flex items-center gap-2 text-xs font-medium tracking-[0.1em] uppercase text-argos-black hover:text-argos-gray transition-colors duration-200">
               See how these work together
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Team */}
+      <section className="section-padding pb-20 lg:pb-28">
+        <div className="container-argos">
+          <div className="max-w-3xl mb-12">
+            <h2 className="heading-section text-2xl sm:text-3xl mb-6">
+              The team
+            </h2>
+            <p className="text-argos-charcoal leading-relaxed text-lg">
+              Argos Worldwide is a lean organisation. Each member of the team is hands-on, client-facing, and directly involved in the work.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {people.map((person) => (
+              <div
+                key={person.name}
+                className="border border-argos-gray-lighter p-8 flex flex-col items-center text-center"
+              >
+                <div className="w-24 h-24 rounded-full overflow-hidden mb-5 bg-argos-gray-lighter">
+                  <img
+                    src={person.photo}
+                    alt={person.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="eyebrow text-argos-accent mb-2">{person.role}</p>
+                <h2 className="font-heading font-bold text-xl text-argos-black mb-6">
+                  {person.name}
+                </h2>
+                <a
+                  href={`mailto:${person.email}`}
+                  className="flex items-center gap-2 text-sm text-argos-charcoal hover:text-argos-black transition-colors duration-200"
+                >
+                  <Mail className="w-4 h-4 shrink-0" />
+                  <span className="break-all">{person.email}</span>
+                </a>
+              </div>
+            ))}
+          </div>
+          <div className="max-w-3xl mt-10">
+            <Link to="/about/people" className="inline-flex items-center gap-2 text-xs font-medium tracking-[0.1em] uppercase text-argos-black hover:text-argos-gray transition-colors duration-200">
+              Meet the full team
             </Link>
           </div>
         </div>
