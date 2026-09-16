@@ -23,7 +23,7 @@ const footerLinks = {
     { label: 'Our People', path: '/about/people' },
   ],
   Connect: [
-    { label: 'Contact', path: '/contact' },
+
     { label: 'Submit a Mandate', path: '/submit-mandate' },
     { label: 'Ethics & Compliance', path: '/about/ethics' },
   ],

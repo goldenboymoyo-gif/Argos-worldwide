@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+mport { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, ChevronDown } from 'lucide-react'
 
@@ -47,10 +47,7 @@ const navItems = [
       { label: 'Ethics & Compliance', path: '/about/ethics' },
     ],
   },
-  {
-    label: 'Contact',
-    path: '/contact',
-  },
+
 ]
 
 export default function Header() {

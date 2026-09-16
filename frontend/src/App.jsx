@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+mport { Routes, Route } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
 import Layout from './components/Layout'
 import AdminApp from './admin/AdminApp'
@@ -22,7 +22,6 @@ const OurStory = lazy(() => import('./pages/about/OurStory'))
 const OurApproach = lazy(() => import('./pages/about/OurApproach'))
 const OurPeople = lazy(() => import('./pages/about/OurPeople'))
 const EthicsCompliance = lazy(() => import('./pages/about/EthicsCompliance'))
-const Contact = lazy(() => import('./pages/Contact'))
 const SubmitMandate = lazy(() => import('./pages/SubmitMandate'))
 const Privacy = lazy(() => import('./pages/legal/Privacy'))
 const Terms = lazy(() => import('./pages/legal/Terms'))
@@ -61,7 +60,6 @@ export default function App() {
           <Route path="about/approach" element={<OurApproach />} />
           <Route path="about/people" element={<OurPeople />} />
           <Route path="about/ethics" element={<EthicsCompliance />} />
-          <Route path="contact" element={<Contact />} />
           <Route path="submit-mandate" element={<SubmitMandate />} />
           <Route path="privacy" element={<Privacy />} />
           <Route path="terms" element={<Terms />} />
