@@ -94,7 +94,7 @@ export default function ActiveDesk() {
     let cancelled = false
     const load = async () => {
       try {
-        const res = await fetch('/api/active-desk/public')
+        const res = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/active-desk/public`)
         if (!res.ok) throw new Error('API unavailable')
         const data = await res.json()
         if (!cancelled && data && data.length > 0) {

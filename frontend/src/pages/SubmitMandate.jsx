@@ -59,7 +59,7 @@ export default function SubmitMandate() {
         formData.append('documents', form.file)
       }
 
-      const res = await fetch('/api/mandates', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/mandates`, {
         method: 'POST',
         body: formData,
       })
