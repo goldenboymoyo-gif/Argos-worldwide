@@ -103,7 +103,7 @@ export default function MarketInsights() {
               Want to be notified when analysis goes live? Get in touch with
               our desk.
             </p>
-            <Link to="/contact" className="btn-secondary justify-center shrink-0">
+            <Link to="/submit-mandate" className="btn-secondary justify-center shrink-0">
               Contact Us
             </Link>
           </div>

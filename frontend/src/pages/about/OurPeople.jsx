@@ -145,7 +145,7 @@ export default function OurPeople() {
               </h2>
             </div>
             <div className="flex items-center gap-4">
-              <Link to="/contact" className="btn-primary">
+              <Link to="/submit-mandate" className="btn-primary">
                 Contact
               </Link>
               <Link to="/submit-mandate" className="btn-secondary">

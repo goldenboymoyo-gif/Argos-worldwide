@@ -107,7 +107,7 @@ export default function SubmitMandate() {
               </p>
             )}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link to="/contact" className="btn-primary">
+              <Link to="/submit-mandate" className="btn-primary">
                 Contact Us
               </Link>
               <Link to="/" className="btn-secondary">

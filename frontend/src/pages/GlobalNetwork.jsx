@@ -153,7 +153,7 @@ export default function GlobalNetwork() {
             Contact our desk or submit a confidential mandate. We operate across all major trade corridors.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link to="/contact" className="btn-primary">
+            <Link to="/submit-mandate" className="btn-primary">
               Contact the Desk
               <ArrowRight className="w-4 h-4" />
             </Link>

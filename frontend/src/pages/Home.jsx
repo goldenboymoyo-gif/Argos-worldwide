@@ -496,7 +496,7 @@ export default function Home() {
 
             <div className="flex items-end justify-start lg:justify-end">
               <Link
-                to="/contact"
+                to="/submit-mandate"
                 className="btn-primary"
               >
                 Full Contact

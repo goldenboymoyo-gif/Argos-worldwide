@@ -212,7 +212,7 @@ export default function WhatWeDo() {
             >
               Submit Mandate
             </Link>
-            <Link to="/contact" className="btn-secondary border-white text-white hover:bg-white hover:text-argos-black">
+            <Link to="/submit-mandate" className="btn-secondary border-white text-white hover:bg-white hover:text-argos-black">
               Contact Us
             </Link>
           </div>
