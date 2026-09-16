@@ -36,11 +36,22 @@ export const config = {
     max: process.env.RATE_MAX || 300,
   },
   mail: {
+    // Preferred: Resend's HTTPS API — works on Render (SMTP ports are
+    // blocked there). Get a key at resend.com and set RESEND_API_KEY.
+    // RESEND_FROM lets you override the "from" address separately from
+    // SMTP_FROM (until a custom domain is verified in Resend, it must
+    // be an address on their onboarding domain, e.g. onboarding@resend.dev).
+    resendApiKey: process.env.RESEND_API_KEY || '',
     host: process.env.SMTP_HOST || 'smtp.gmail.com',
     port: Number(process.env.SMTP_PORT || 587),
     user: process.env.SMTP_USER || 'arthur@argosworldwide.com',
     pass: process.env.SMTP_PASS || '',
-    from: process.env.SMTP_FROM || 'Argos Worldwide Website <no-reply@argosworldwide.com>',
+    from:
+      process.env.RESEND_FROM ||
+      process.env.SMTP_FROM ||
+      (process.env.RESEND_API_KEY
+        ? 'Argos Worldwide Website <onboarding@resend.dev>'
+        : 'Argos Worldwide Website <no-reply@argosworldwide.com>'),
     // Where contact/mandate submission notifications are sent.
     notifyEmail: process.env.CONTACT_NOTIFY_EMAIL || 'arthur@argosworldwide.com',
   },
