@@ -12,9 +12,7 @@ services:
       - key: NODE_ENV
         value: production
       - key: DATABASE_URL
-        fromDatabase:
-          name: argos-worldwide-postgres
-          property: connectionString
+        sync: false
       - key: JWT_SECRET
         sync: false
       - key: JWT_EXPIRES_IN
@@ -39,7 +37,3 @@ services:
         value: "Argos Worldwide Website <no-reply@argosworldwide.com>"
       - key: CONTACT_NOTIFY_EMAIL
         value: arthur@argosworldwide.com
-
-databases:
-  - name: argos-worldwide-postgres
-    plan: free
