@@ -7,17 +7,17 @@ import {
 import { useState } from 'react'
 
 const navItems = [
-  { to: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
-  { to: '/active-desk', icon: Armchair, label: 'Active Desk' },
-  { to: '/mandates', icon: FileText, label: 'Mandates' },
-  { to: '/commodities', icon: Layers, label: 'Commodities' },
-  { to: '/insights', icon: Newspaper, label: 'Insights' },
-  { to: '/market-data', icon: TrendingUp, label: 'Market Data' },
-  { to: '/freight', icon: Ship, label: 'Freight' },
-  { to: '/contacts', icon: MessageSquare, label: 'Contacts' },
-  { to: '/users', icon: Users, label: 'Users' },
-  { to: '/audit', icon: ScrollText, label: 'Audit Logs' },
-  { to: '/settings', icon: Settings, label: 'Settings' },
+  { to: 'dashboard', icon: LayoutDashboard, label: 'Dashboard' },
+  { to: 'active-desk', icon: Armchair, label: 'Active Desk' },
+  { to: 'mandates', icon: FileText, label: 'Mandates' },
+  { to: 'commodities', icon: Layers, label: 'Commodities' },
+  { to: 'insights', icon: Newspaper, label: 'Insights' },
+  { to: 'market-data', icon: TrendingUp, label: 'Market Data' },
+  { to: 'freight', icon: Ship, label: 'Freight' },
+  { to: 'contacts', icon: MessageSquare, label: 'Contacts' },
+  { to: 'users', icon: Users, label: 'Users' },
+  { to: 'audit', icon: ScrollText, label: 'Audit Logs' },
+  { to: 'settings', icon: Settings, label: 'Settings' },
 ]
 
 export default function AdminLayout({ children, user, onLogout }) {
@@ -27,7 +27,7 @@ export default function AdminLayout({ children, user, onLogout }) {
   const handleLogout = () => {
     localStorage.removeItem('argos_admin_token')
     onLogout()
-    navigate('/')
+    navigate('/admin')
   }
 
   return (

@@ -39,12 +39,12 @@ export default function AuditLogs() {
                   <td className="py-3 px-3 text-gray-400 text-xs whitespace-nowrap">
                     {log.created_at ? new Date(log.created_at).toLocaleString() : '-'}
                   </td>
-                  <td className="py-3 px-3 text-white text-xs">{log.user || log.userEmail || '-'}</td>
+                  <td className="py-3 px-3 text-white text-xs">{log.user_email || log.user || '-'}</td>
                   <td className="py-3 px-3">
                     <span className="text-[10px] uppercase tracking-wider text-gray-400 bg-[#1a1a1a] px-2 py-1">{log.action}</span>
                   </td>
                   <td className="py-3 px-3 text-gray-300 text-xs">{log.resource || log.entityType || '-'}</td>
-                  <td className="py-3 px-3 text-gray-500 text-xs max-w-[300px] truncate">{log.details || log.metadata || '-'}</td>
+                  <td className="py-3 px-3 text-gray-500 text-xs max-w-[300px] truncate">{log.details || (log.metadata ? (typeof log.metadata === 'string' ? log.metadata : JSON.stringify(log.metadata)) : '-')}</td>
                 </tr>
               ))}
             </tbody>

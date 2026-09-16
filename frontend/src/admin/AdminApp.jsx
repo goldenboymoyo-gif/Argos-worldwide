@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import AdminLayout from './AdminLayout'
 import Login from './Login'
 import Dashboard from './Dashboard'
@@ -50,23 +50,21 @@ export default function AdminApp() {
   }
 
   return (
-    <HashRouter>
-      <AdminLayout user={user} onLogout={handleLogout}>
-        <Routes>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/active-desk" element={<ActiveDesk />} />
-          <Route path="/mandates" element={<Mandates />} />
-          <Route path="/commodities" element={<Commodities />} />
-          <Route path="/insights" element={<Insights />} />
-          <Route path="/market-data" element={<MarketData />} />
-          <Route path="/freight" element={<Freight />} />
-          <Route path="/contacts" element={<Contacts />} />
-          <Route path="/users" element={<Users />} />
-          <Route path="/audit" element={<AuditLogs />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="*" element={<Navigate to="/dashboard" replace />} />
-        </Routes>
-      </AdminLayout>
-    </HashRouter>
+    <AdminLayout user={user} onLogout={handleLogout}>
+      <Routes>
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="active-desk" element={<ActiveDesk />} />
+        <Route path="mandates" element={<Mandates />} />
+        <Route path="commodities" element={<Commodities />} />
+        <Route path="insights" element={<Insights />} />
+        <Route path="market-data" element={<MarketData />} />
+        <Route path="freight" element={<Freight />} />
+        <Route path="contacts" element={<Contacts />} />
+        <Route path="users" element={<Users />} />
+        <Route path="audit" element={<AuditLogs />} />
+        <Route path="settings" element={<Settings />} />
+        <Route path="*" element={<Navigate to="dashboard" replace />} />
+      </Routes>
+    </AdminLayout>
   )
 }
