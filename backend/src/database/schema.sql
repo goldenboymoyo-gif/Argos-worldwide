@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS active_desk (
 CREATE TABLE IF NOT EXISTS market_data (
   id SERIAL PRIMARY KEY,
   instrument VARCHAR(255) NOT NULL,
-  symbol VARCHAR(50),
+  symbol VARCHAR(50) UNIQUE,
   price NUMERIC(20, 4),
   change_value NUMERIC(20, 4),
   change_percent NUMERIC(10, 4),

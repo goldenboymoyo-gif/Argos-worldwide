@@ -4,6 +4,7 @@ import { contactLimiter } from '../middleware/rateLimit.js'
 import { protect, authorize } from '../middleware/auth.js'
 import { query } from '../config/database.js'
 import { sanitizeInput, logAudit } from '../services/sanitizer.js'
+import { sendNotification } from '../services/mailer.js'
 
 const router = Router()
 
@@ -35,6 +36,17 @@ router.post('/', contactLimiter, validateContact, async (req, res, next) => {
     )
 
     await logAudit({ action: 'CONTACT_SUBMITTED', entity: 'contact', entityId: result.rows[0].id, ip: req.ip })
+
+    // Best-effort — never blocks the response if email sending fails.
+    sendNotification({
+      subject: `New contact enquiry: ${req.body.subject || 'General enquiry'}`,
+      text: `New enquiry received via the website contact form.\n\n` +
+        `Name: ${req.body.name}\n` +
+        `Email: ${req.body.email}\n` +
+        `Organisation: ${req.body.organisation || '—'}\n` +
+        `Subject: ${req.body.subject || '—'}\n\n` +
+        `Message:\n${req.body.message}`,
+    }).catch(() => {})
 
     res.status(201).json({ message: 'Message received. We will respond within one business day.' })
   } catch (error) {

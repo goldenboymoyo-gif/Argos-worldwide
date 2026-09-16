@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Ship, ArrowUpRight, ArrowDownLeft, WifiOff } from 'lucide-react'
+import BackLink from '../../components/BackLink'
+import { Ship, ArrowUpRight, ArrowDownLeft, WifiOff } from 'lucide-react'
 
 const routes = [
   {
@@ -78,7 +79,7 @@ export default function Freight() {
         <title>Freight | Argos Worldwide</title>
         <meta
           name="description"
-          content="Argos Worldwide freight intelligence — indicative ocean route rates across energy, grains, ore and general cargo."
+          content="Argos Worldwide freight intelligence, indicative ocean route rates across energy, grains, ore and general cargo."
         />
       </Helmet>
 
@@ -94,6 +95,7 @@ export default function Freight() {
           <div className="absolute inset-0 bg-gradient-to-t from-argos-black via-argos-black/50 to-transparent" />
         </div>
         <div className="container-argos section-padding pt-28 lg:pt-40 pb-16 lg:pb-20 relative z-10">
+          <BackLink to="/markets" label="Back to Markets" className="mb-5" />
           <p className="eyebrow text-argos-accent mb-5">Market Data</p>
           <h1 className="heading-display text-4xl sm:text-5xl lg:text-6xl mb-6">
             FREIGHT
@@ -196,7 +198,6 @@ export default function Freight() {
               </div>
               <Link to="/markets/prices" className="btn-secondary justify-center shrink-0">
                 Commodity Prices
-                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </div>

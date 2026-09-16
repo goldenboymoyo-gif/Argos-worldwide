@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
+import BackLink from '../../components/BackLink'
 import { Helmet } from 'react-helmet-async'
-import { ArrowRight, Ship, Globe, BarChart3, Shield, Zap, Fuel } from 'lucide-react'
+import { Ship, Globe, BarChart3, Shield, Zap, Fuel } from 'lucide-react'
 
 const products = [
   {
@@ -82,6 +83,7 @@ export default function Energy() {
         </div>
         <div className="container-argos relative z-10">
           <div className="max-w-3xl">
+            <BackLink to="/commodities" label="Back to Commodities" className="mb-6" />
             <p className="eyebrow text-argos-gray-light mb-6">Commodities</p>
             <h1 className="heading-display text-5xl sm:text-6xl lg:text-7xl mb-6">Energy</h1>
             <p className="text-lg text-argos-gray-light leading-relaxed max-w-2xl">
@@ -103,7 +105,7 @@ export default function Energy() {
             </div>
             <div className="flex flex-col justify-center">
               <p className="text-argos-gray text-base leading-relaxed mb-4">
-                Argos Worldwide operates across the full spectrum of energy commodities — from crude oil and refined petroleum products to liquefied natural gas and power. Our network spans the Atlantic and Eastern basins, linking producers with refiners, national oil companies, trading houses and end-users.
+                Argos Worldwide operates across the full spectrum of energy commodities, from crude oil and refined petroleum products to liquefied natural gas and power. Our network spans the Atlantic and Eastern basins, linking producers with refiners, national oil companies, trading houses and end-users.
               </p>
               <p className="text-argos-gray text-base leading-relaxed">
                 We structure transactions that balance pricing, logistics and counterparty requirements. Whether a single cargo or a long-term offtake, every deal is underwritten by deep market knowledge and established relationships across the supply chain.
@@ -118,6 +120,13 @@ export default function Energy() {
         <div className="container-argos">
           <p className="eyebrow mb-4">Products</p>
           <h2 className="heading-section text-3xl lg:text-4xl mb-12">What we trade</h2>
+          <div className="mb-12 overflow-hidden">
+            <img
+              src="/images/commodities/energy-lng.jpg"
+              alt="LNG cargo and energy product handling"
+              className="w-full h-56 sm:h-72 object-cover"
+            />
+          </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-argos-gray-lighter">
             {products.map((product) => (
               <div key={product.name} className="bg-argos-gray-lightest p-8 hover:bg-white transition-colors duration-300">
@@ -241,21 +250,20 @@ export default function Energy() {
         </div>
       </section>
 
-      {/* Active Opportunities */}
+      {/* Mandate CTA */}
       <section className="section-padding py-20 lg:py-28 bg-argos-dark text-white">
         <div className="container-argos">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="eyebrow text-argos-gray-light mb-4">Live opportunities</p>
-              <h2 className="heading-section text-3xl lg:text-4xl mb-4">Active Energy Desk</h2>
+              <p className="eyebrow text-argos-gray-light mb-4">Get started</p>
+              <h2 className="heading-section text-3xl lg:text-4xl mb-4">Have an energy mandate?</h2>
               <p className="text-argos-gray-light text-base leading-relaxed">
-                Current energy tenders, cargo offers and RFQs updated in real time. View what is actively available on the trading desk.
+                Tell us your volume, specification and timeline. Our desk will identify tenders, cargo offers and RFQs that match your requirements.
               </p>
             </div>
             <div className="flex lg:justify-end">
-              <Link to="/active-desk" className="btn-primary">
-                View Active Desk
-                <ArrowRight className="w-4 h-4" />
+              <Link to="/submit-mandate" className="btn-primary">
+                Submit a Mandate
               </Link>
             </div>
           </div>
@@ -276,7 +284,6 @@ export default function Energy() {
             <div className="flex lg:justify-end">
               <Link to="/markets/intelligence" className="btn-secondary">
                 Explore Intelligence
-                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -296,7 +303,6 @@ export default function Energy() {
                 className="bg-argos-gray-lightest p-6 hover:bg-white transition-colors duration-300 group"
               >
                 <h3 className="font-heading font-semibold text-sm mb-2 group-hover:text-argos-accent transition-colors">{item.name}</h3>
-                <ArrowRight className="w-4 h-4 text-argos-gray-light group-hover:text-argos-accent transition-colors" />
               </Link>
             ))}
           </div>
@@ -313,7 +319,6 @@ export default function Energy() {
           </p>
           <Link to="/submit-mandate" className="btn-primary">
             Submit Mandate
-            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

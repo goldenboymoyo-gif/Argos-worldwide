@@ -1,29 +1,31 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
+import BackLink from '../../components/BackLink'
 
 export default function Disclaimer() {
   return (
     <>
       <Helmet>
-        <title>Disclaimer — Argos Worldwide</title>
+        <title>Disclaimer, Argos Worldwide</title>
         <meta name="description" content="Disclaimer for Argos Worldwide commodity trading services and website content." />
       </Helmet>
 
       <section className="section-padding py-24 lg:py-32">
         <div className="container-argos">
           <div className="max-w-3xl">
+            <BackLink to="/" label="Back to Home" variant="light" className="mb-4" />
             <p className="eyebrow text-argos-gray mb-4">Legal</p>
             <h1 className="heading-display text-3xl sm:text-4xl lg:text-5xl mb-4">
               Disclaimer
             </h1>
-            <p className="text-sm text-argos-gray mb-2">Draft — Pending Legal Review</p>
+            <p className="text-sm text-argos-gray mb-2">Draft, Pending Legal Review</p>
             <p className="text-sm text-argos-gray mb-12">Last updated: {new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
 
             <div className="space-y-10 text-argos-charcoal leading-relaxed">
               <section>
                 <h2 className="heading-section text-xl mb-4">No Investment or Trading Advice</h2>
                 <p>
-                  The information provided on the Argos Worldwide website — including market analysis, commentary, commodity data, freight information, and insights — is provided for general informational purposes only. It does not constitute investment advice, trading advice, financial advice, or any other form of professional advice. You should not rely on any information from this website as the basis for making any trading, investment, or commercial decision.
+                  The information provided on the Argos Worldwide website, including market analysis, commentary, commodity data, freight information, and insights, is provided for general informational purposes only. It does not constitute investment advice, trading advice, financial advice, or any other form of professional advice. You should not rely on any information from this website as the basis for making any trading, investment, or commercial decision.
                 </p>
               </section>
 

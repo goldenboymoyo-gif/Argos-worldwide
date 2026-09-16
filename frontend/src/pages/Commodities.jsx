@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
+import BackLink from '../components/BackLink'
 import { Helmet } from 'react-helmet-async'
-import { ArrowRight, Zap, Gem, Mountain, Wheat, Building2, Search } from 'lucide-react'
+import { Zap, Coins, Mountain, Wheat, Building2, Search } from 'lucide-react'
 
 const commodities = [
   {
@@ -14,7 +15,7 @@ const commodities = [
   {
     name: 'Metals',
     path: '/commodities/metals',
-    icon: Gem,
+    icon: Coins,
     image: '/images/commodities/metals-copper.jpg',
     description: 'Precious, base and battery metals including physical lots and structured offtake agreements.',
     products: ['Precious Metals', 'Base Metals', 'Battery Metals'],
@@ -57,7 +58,7 @@ export default function Commodities() {
   return (
     <>
       <Helmet>
-        <title>Commodities — Argos Worldwide</title>
+        <title>Commodities, Argos Worldwide</title>
         <meta name="description" content="Argos Worldwide sources energy, metals, minerals, agriculture, construction materials, and specialist commodities from global origins to worldwide destinations." />
       </Helmet>
 
@@ -73,6 +74,7 @@ export default function Commodities() {
           <div className="absolute inset-0 bg-gradient-to-t from-argos-black via-argos-black/50 to-transparent" />
         </div>
         <div className="container-argos relative z-10">
+          <BackLink to="/" label="Back to Home" className="mb-4" />
           <p className="eyebrow text-argos-gray-light mb-4">COMMODITIES</p>
           <h1 className="heading-display text-4xl sm:text-5xl lg:text-6xl text-white max-w-3xl">
             What we source.
@@ -106,7 +108,6 @@ export default function Commodities() {
                   <div className="p-8 sm:p-10">
                     <div className="flex items-start justify-between mb-6">
                       <Icon className="w-6 h-6 text-argos-gray" strokeWidth={1.5} />
-                      <ArrowRight className="w-4 h-4 text-argos-gray-light group-hover:text-argos-black transition-all duration-300 group-hover:translate-x-1" />
                     </div>
                     <h2 className="heading-section text-xl mb-3">{commodity.name}</h2>
                     <p className="text-[0.875rem] text-argos-gray leading-relaxed mb-6">
@@ -142,7 +143,6 @@ export default function Commodities() {
           </p>
           <Link to="/submit-mandate" className="btn-primary">
             Submit a Mandate
-            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

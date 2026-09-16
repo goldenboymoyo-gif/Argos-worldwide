@@ -1,22 +1,24 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
+import BackLink from '../../components/BackLink'
 
 export default function Terms() {
   return (
     <>
       <Helmet>
-        <title>Terms of Use — Argos Worldwide</title>
+        <title>Terms of Use, Argos Worldwide</title>
         <meta name="description" content="Terms of Use for the Argos Worldwide website and services." />
       </Helmet>
 
       <section className="section-padding py-24 lg:py-32">
         <div className="container-argos">
           <div className="max-w-3xl">
+            <BackLink to="/" label="Back to Home" variant="light" className="mb-4" />
             <p className="eyebrow text-argos-gray mb-4">Legal</p>
             <h1 className="heading-display text-3xl sm:text-4xl lg:text-5xl mb-4">
               Terms of Use
             </h1>
-            <p className="text-sm text-argos-gray mb-2">Draft — Pending Legal Review</p>
+            <p className="text-sm text-argos-gray mb-2">Draft, Pending Legal Review</p>
             <p className="text-sm text-argos-gray mb-12">Last updated: {new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
 
             <div className="space-y-10 text-argos-charcoal leading-relaxed">
@@ -40,7 +42,7 @@ export default function Terms() {
               <section>
                 <h2 className="heading-section text-xl mb-4">3. Intellectual Property</h2>
                 <p>
-                  All content on this website — including text, graphics, logos, icons, images, data compilations, and software — is the property of Argos Worldwide or its licensors and is protected by applicable intellectual property laws. You may not reproduce, distribute, modify, or create derivative works from any content without prior written consent.
+                  All content on this website, including text, graphics, logos, icons, images, data compilations, and software, is the property of Argos Worldwide or its licensors and is protected by applicable intellectual property laws. You may not reproduce, distribute, modify, or create derivative works from any content without prior written consent.
                 </p>
               </section>
 

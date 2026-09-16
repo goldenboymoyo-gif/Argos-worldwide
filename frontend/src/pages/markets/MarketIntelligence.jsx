@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
+import BackLink from '../../components/BackLink'
 import {
-  ArrowRight,
   LineChart,
   Ship,
   Activity,
@@ -15,7 +15,7 @@ const sections = [
     path: '/markets/prices',
     icon: LineChart,
     description:
-      'Energy, metals, agriculture and softs — reference pricing across the instruments we trade, in a clean terminal format.',
+      'Energy, metals, agriculture and softs, reference pricing across the instruments we trade, in a clean terminal format.',
   },
   {
     label: 'Freight',
@@ -31,7 +31,7 @@ const sections = [
     path: '/markets/freight',
     icon: Activity,
     description:
-      'Frameworks for tracking the signals that move markets — supply, demand, storage and flow, not just headlines.',
+      'Frameworks for tracking the signals that move markets: supply, demand, storage and flow, not just headlines.',
   },
   {
     label: 'Insights',
@@ -50,20 +50,30 @@ export default function MarketIntelligence() {
         <title>Market Intelligence | Argos Worldwide</title>
         <meta
           name="description"
-          content="Argos Worldwide market intelligence — commodity prices, freight rates, supply chain signals and desk commentary."
+          content="Argos Worldwide market intelligence, commodity prices, freight rates, supply chain signals and desk commentary."
         />
       </Helmet>
 
       {/* Hero */}
-      <section className="bg-argos-black text-white">
-        <div className="container-argos section-padding pt-28 lg:pt-40 pb-16 lg:pb-20">
+      <section className="relative bg-argos-black text-white overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/images/home/port.jpg"
+            alt="Container port and global trade operations"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-argos-black/75" />
+          <div className="absolute inset-0 bg-gradient-to-t from-argos-black via-argos-black/50 to-transparent" />
+        </div>
+        <div className="container-argos section-padding pt-28 lg:pt-40 pb-16 lg:pb-20 relative z-10">
+          <BackLink to="/markets" label="Back to Markets" className="mb-5" />
           <p className="eyebrow text-argos-accent mb-5">Markets &amp; Intelligence</p>
           <h1 className="heading-display text-4xl sm:text-5xl lg:text-6xl mb-6">
             ARGOS MARKET<br />
             INTELLIGENCE
           </h1>
           <p className="text-argos-gray-light text-base lg:text-lg max-w-2xl leading-relaxed">
-            The Argos desk monitors commodity markets continuously — across prices,
+            The Argos desk monitors commodity markets continuously, across prices,
             freight, currencies and the structural signals that precede moves. Our
             view of the market is built from the ground up: what is being produced,
             where it is stored, how it moves and who is buying.
@@ -82,7 +92,7 @@ export default function MarketIntelligence() {
             <div className="space-y-4 text-base leading-relaxed text-argos-gray">
               <p>
                 Trading physical commodities means living in the detail. We track
-                the things that actually move a market — not the noise around it.
+                the things that actually move a market, not the noise around it.
               </p>
             </div>
 
@@ -130,7 +140,6 @@ export default function MarketIntelligence() {
                       <Icon className="w-3.5 h-3.5" />
                       {section.label}
                     </span>
-                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </div>
                   <h3 className="heading-section text-xl mb-3">{section.title}</h3>
                   <p className="text-sm text-argos-gray leading-relaxed mb-6">
@@ -138,7 +147,6 @@ export default function MarketIntelligence() {
                   </p>
                   <span className="inline-flex items-center gap-2 text-xs font-medium tracking-[0.1em] uppercase text-argos-black group-hover:text-argos-accent transition-colors duration-300">
                     View
-                    <ArrowRight className="w-3.5 h-3.5" />
                   </span>
                 </Link>
               )

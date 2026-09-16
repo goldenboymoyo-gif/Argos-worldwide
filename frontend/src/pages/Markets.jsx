@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
+import BackLink from '../components/BackLink'
 import { Helmet } from 'react-helmet-async'
-import { ArrowRight, BarChart3, Ship, Radio, BookOpen } from 'lucide-react'
+import { BarChart3, Ship, Radio, BookOpen } from 'lucide-react'
 
 const sections = [
   {
@@ -33,13 +34,23 @@ export default function Markets() {
   return (
     <>
       <Helmet>
-        <title>Markets — Argos Worldwide</title>
+        <title>Markets, Argos Worldwide</title>
         <meta name="description" content="Argos Worldwide market intelligence: commodity prices, freight rates, market signals, and insights from the Argos desk." />
       </Helmet>
 
       {/* Hero */}
-      <section className="bg-argos-black text-white section-padding py-20 lg:py-28">
-        <div className="container-argos">
+      <section className="relative bg-argos-black text-white section-padding py-20 lg:py-28 overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/images/home/port.jpg"
+            alt="Container port and global shipping operations"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-argos-black/75" />
+          <div className="absolute inset-0 bg-gradient-to-t from-argos-black via-argos-black/50 to-transparent" />
+        </div>
+        <div className="container-argos relative z-10">
+          <BackLink to="/" label="Back to Home" className="mb-4" />
           <p className="eyebrow text-argos-gray-light mb-4">MARKETS</p>
           <h1 className="heading-display text-4xl sm:text-5xl lg:text-6xl text-white max-w-3xl">
             Market intelligence.
@@ -64,7 +75,6 @@ export default function Markets() {
                 >
                   <div className="flex items-start justify-between mb-8">
                     <Icon className="w-6 h-6 text-argos-gray" strokeWidth={1.5} />
-                    <ArrowRight className="w-4 h-4 text-argos-gray-light group-hover:text-argos-black transition-all duration-300 group-hover:translate-x-1" />
                   </div>
                   <h2 className="heading-section text-2xl mb-3">{section.title}</h2>
                   <p className="text-[0.9375rem] text-argos-gray leading-relaxed">

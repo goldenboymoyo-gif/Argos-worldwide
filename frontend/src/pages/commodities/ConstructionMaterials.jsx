@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
+import BackLink from '../../components/BackLink'
 import { Helmet } from 'react-helmet-async'
-import { ArrowRight, Building2, Shield, Globe, BarChart3, Truck, HardHat } from 'lucide-react'
+import { Building2, Shield, Globe, BarChart3, Truck, HardHat } from 'lucide-react'
 
 const products = [
   {
@@ -60,6 +61,7 @@ export default function ConstructionMaterials() {
         </div>
         <div className="container-argos relative z-10">
           <div className="max-w-3xl">
+            <BackLink to="/commodities" label="Back to Commodities" className="mb-6" />
             <p className="eyebrow text-argos-gray-light mb-6">Commodities</p>
             <h1 className="heading-display text-5xl sm:text-6xl lg:text-7xl mb-6">Construction Materials</h1>
             <p className="text-lg text-argos-gray-light leading-relaxed max-w-2xl">
@@ -81,7 +83,7 @@ export default function ConstructionMaterials() {
             </div>
             <div className="flex flex-col justify-center">
               <p className="text-argos-gray text-base leading-relaxed mb-4">
-                Argos Worldwide sources and supplies construction materials for large-scale infrastructure and development projects. We cover the essential inputs — aggregates, cement, bitumen and bulk materials — connecting producers in surplus markets with demand-driven projects.
+                Argos Worldwide sources and supplies construction materials for large-scale infrastructure and development projects. We cover the essential inputs, aggregates, cement, bitumen and bulk materials, connecting producers in surplus markets with demand-driven projects.
               </p>
               <p className="text-argos-gray text-base leading-relaxed">
                 Our focus is on volume reliability and logistics coordination. Construction projects cannot afford supply interruptions, and we structure our sourcing to deliver continuity from origin to site.
@@ -96,6 +98,13 @@ export default function ConstructionMaterials() {
         <div className="container-argos">
           <p className="eyebrow mb-4">Products</p>
           <h2 className="heading-section text-3xl lg:text-4xl mb-12">What we trade</h2>
+          <div className="mb-12 overflow-hidden">
+            <img
+              src="/images/commodities/construction.jpg"
+              alt="Construction materials and bulk aggregates"
+              className="w-full h-56 sm:h-72 object-cover"
+            />
+          </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-argos-gray-lighter">
             {products.map((product) => (
               <div key={product.name} className="bg-argos-gray-lightest p-8 hover:bg-white transition-colors duration-300">
@@ -118,7 +127,7 @@ export default function ConstructionMaterials() {
               <Truck className="w-6 h-6 text-argos-accent mb-4" />
               <h3 className="font-heading font-semibold text-base mb-2">Volume Supply</h3>
               <p className="text-argos-gray text-sm leading-relaxed">
-                We source at the scale required by infrastructure projects — from single-vessel shipments to multi-year supply contracts.
+                We source at the scale required by infrastructure projects, from single-vessel shipments to multi-year supply contracts.
               </p>
             </div>
             <div>
@@ -213,21 +222,20 @@ export default function ConstructionMaterials() {
         </div>
       </section>
 
-      {/* Active Opportunities */}
+      {/* Mandate CTA */}
       <section className="section-padding py-20 lg:py-28 bg-argos-dark text-white">
         <div className="container-argos">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="eyebrow text-argos-gray-light mb-4">Live opportunities</p>
-              <h2 className="heading-section text-3xl lg:text-4xl mb-4">Active Desk</h2>
+              <p className="eyebrow text-argos-gray-light mb-4">Get started</p>
+              <h2 className="heading-section text-3xl lg:text-4xl mb-4">Have a construction materials mandate?</h2>
               <p className="text-argos-gray-light text-base leading-relaxed">
-                Current construction material tenders and supply opportunities updated in real time.
+                Tell us your volume, specification and timeline. Our desk will identify construction material tenders and supply opportunities that match your requirements.
               </p>
             </div>
             <div className="flex lg:justify-end">
-              <Link to="/active-desk" className="btn-primary">
-                View Active Desk
-                <ArrowRight className="w-4 h-4" />
+              <Link to="/submit-mandate" className="btn-primary">
+                Submit a Mandate
               </Link>
             </div>
           </div>
@@ -248,7 +256,6 @@ export default function ConstructionMaterials() {
             <div className="flex lg:justify-end">
               <Link to="/markets/intelligence" className="btn-secondary">
                 Explore Intelligence
-                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -268,7 +275,6 @@ export default function ConstructionMaterials() {
                 className="bg-argos-gray-lightest p-6 hover:bg-white transition-colors duration-300 group"
               >
                 <h3 className="font-heading font-semibold text-sm mb-2 group-hover:text-argos-accent transition-colors">{item.name}</h3>
-                <ArrowRight className="w-4 h-4 text-argos-gray-light group-hover:text-argos-accent transition-colors" />
               </Link>
             ))}
           </div>
@@ -285,7 +291,6 @@ export default function ConstructionMaterials() {
           </p>
           <Link to="/submit-mandate" className="btn-primary">
             Submit Mandate
-            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

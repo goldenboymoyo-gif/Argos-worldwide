@@ -5,6 +5,7 @@ import { protect, authorize } from '../middleware/auth.js'
 import { mandateLimiter } from '../middleware/rateLimit.js'
 import { upload } from '../middleware/upload.js'
 import { sanitizeInput, logAudit } from '../services/sanitizer.js'
+import { sendNotification } from '../services/mailer.js'
 
 const router = Router()
 
@@ -63,6 +64,24 @@ router.post(
       }
 
       await logAudit({ action: 'MANDATE_SUBMITTED', entity: 'mandate', entityId: mandate.id, ip: req.ip })
+
+      // Best-effort — never blocks the response if email sending fails.
+      sendNotification({
+        subject: `New mandate submitted: ${body.commodity}`,
+        text: `New confidential mandate received via the website.\n\n` +
+          `Reference: ${mandate.id}\n` +
+          `Party type: ${body.partyType}\n` +
+          `Commodity: ${body.commodity}\n` +
+          `Origin: ${body.origin}\n` +
+          `Destination: ${body.destination}\n` +
+          `Volume: ${body.volume} ${body.unit}\n` +
+          `Delivery window: ${body.deliveryWindow || '—'}\n` +
+          `Incoterms: ${body.incoterms || '—'}\n` +
+          `Target price: ${body.targetPrice || '—'}\n\n` +
+          `Specification:\n${body.specification || '—'}\n\n` +
+          `Additional info:\n${body.additionalInfo || '—'}\n\n` +
+          `View in admin for uploaded documents.`,
+      }).catch(() => {})
 
       res.status(201).json({ message: 'Mandate received. We will respond confidentially.', reference: mandate.id })
     } catch (error) {

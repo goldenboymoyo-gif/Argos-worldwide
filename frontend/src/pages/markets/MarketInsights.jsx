@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Newspaper, FileText } from 'lucide-react'
+import BackLink from '../../components/BackLink'
+import { Newspaper, FileText } from 'lucide-react'
 
 const placeholderArticles = [
   { category: 'Energy', date: 'Date 2026' },
@@ -16,13 +17,23 @@ export default function MarketInsights() {
         <title>Market Insights | Argos Worldwide</title>
         <meta
           name="description"
-          content="Market analysis and commentary from the Argos desk — commodity markets, freight and supply chain intelligence."
+          content="Market analysis and commentary from the Argos desk, commodity markets, freight and supply chain intelligence."
         />
       </Helmet>
 
       {/* Hero */}
-      <section className="bg-argos-black text-white">
-        <div className="container-argos section-padding pt-28 lg:pt-40 pb-16 lg:pb-20">
+      <section className="relative bg-argos-black text-white overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/images/home/hero-cargo.jpg"
+            alt="Cargo vessel at sea"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-argos-black/75" />
+          <div className="absolute inset-0 bg-gradient-to-t from-argos-black via-argos-black/50 to-transparent" />
+        </div>
+        <div className="container-argos section-padding pt-28 lg:pt-40 pb-16 lg:pb-20 relative z-10">
+          <BackLink to="/markets" label="Back to Markets" className="mb-5" />
           <p className="eyebrow text-argos-accent mb-5">Intelligence</p>
           <h1 className="heading-display text-4xl sm:text-5xl lg:text-6xl mb-6">
             MARKET INSIGHTS
@@ -44,14 +55,10 @@ export default function MarketInsights() {
             <h2 className="heading-section text-xl sm:text-2xl mb-3">
               Articles are on the way
             </h2>
-            <p className="text-sm text-argos-gray max-w-xl mx-auto leading-relaxed mb-8">
+            <p className="text-sm text-argos-gray max-w-xl mx-auto leading-relaxed">
               Market analysis and commentary from the Argos desk. Articles are
               reviewed and published by our team.
             </p>
-            <Link to="/insights" className="btn-primary inline-flex">
-              View Articles
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
           </div>
         </div>
       </section>
@@ -86,7 +93,6 @@ export default function MarketInsights() {
                 </p>
                 <span className="inline-flex items-center gap-1.5 text-xs font-medium tracking-[0.1em] uppercase text-argos-gray">
                   Read
-                  <ArrowRight className="w-3 h-3" />
                 </span>
               </article>
             ))}
@@ -94,12 +100,11 @@ export default function MarketInsights() {
 
           <div className="mt-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 border-t border-argos-gray-lighter pt-8">
             <p className="text-sm text-argos-gray max-w-xl leading-relaxed">
-              The full article listing — including historical commentary — is
-              maintained on the central insights index.
+              Want to be notified when analysis goes live? Get in touch with
+              our desk.
             </p>
-            <Link to="/insights" className="btn-secondary justify-center shrink-0">
-              All Insights
-              <ArrowRight className="w-3.5 h-3.5" />
+            <Link to="/contact" className="btn-secondary justify-center shrink-0">
+              Contact Us
             </Link>
           </div>
         </div>

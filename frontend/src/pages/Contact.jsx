@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Mail, Phone, Send } from 'lucide-react'
+import BackLink from '../components/BackLink'
+import { Mail, Phone, Send } from 'lucide-react'
 
 const contacts = [
   {
@@ -11,10 +12,16 @@ const contacts = [
     phone: null,
   },
   {
-    name: 'Ben Norton',
+    name: 'Benjamin Norton',
     role: 'Broker',
     email: 'ben@argosworldwide.com',
     phone: '+263 77 875 9836',
+  },
+  {
+    name: 'Bright Moyo',
+    role: 'Technician',
+    email: 'bright@argosworldwide.com',
+    phone: null,
   },
 ]
 
@@ -60,7 +67,7 @@ export default function Contact() {
   return (
     <>
       <Helmet>
-        <title>Contact — Argos Worldwide</title>
+        <title>Contact, Argos Worldwide</title>
         <meta name="description" content="Get in touch with the Argos Worldwide desk. All enquiries are handled in confidence. We respond within one business day." />
       </Helmet>
 
@@ -68,6 +75,7 @@ export default function Contact() {
       <section className="section-padding pt-28 pb-16 lg:pt-36 lg:pb-24">
         <div className="container-argos">
           <div className="max-w-3xl">
+            <BackLink to="/" label="Back to Home" variant="light" className="mb-4" />
             <span className="eyebrow">Get in Touch</span>
             <h1 className="heading-section text-4xl sm:text-5xl lg:text-6xl text-argos-black mt-4 mb-6">
               REACH THE ARGOS DESK
@@ -84,11 +92,23 @@ export default function Contact() {
         <div className="container-argos">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
 
-            {/* Left Column — Contacts */}
+            {/* Left Column, Contacts */}
             <div className="lg:col-span-4">
               <h2 className="heading-section text-xl text-argos-black mb-8">
                 Direct Contacts
               </h2>
+
+              <div className="border border-argos-gray-lighter bg-argos-gray-lightest p-6 mb-8">
+                <p className="text-xs text-argos-gray-light mb-2">Argos Desk</p>
+                <a
+                  href="tel:+263790016331"
+                  className="flex items-center gap-3 text-sm font-medium text-argos-black hover:text-argos-accent transition-colors duration-200"
+                >
+                  <Phone className="w-4 h-4 shrink-0" />
+                  +263 79 001 6331
+                </a>
+              </div>
+
               <div className="space-y-8">
                 {contacts.map((contact, index) => (
                   <div key={index} className="border-t border-argos-gray-lighter pt-6">
@@ -129,12 +149,11 @@ export default function Contact() {
                   className="inline-flex items-center gap-2 text-xs font-medium tracking-[0.1em] uppercase text-argos-black hover:text-argos-gray mt-4 transition-colors duration-200"
                 >
                   Submit a Mandate
-                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>
 
-            {/* Right Column — Form */}
+            {/* Right Column, Form */}
             <div className="lg:col-span-8">
               <h2 className="heading-section text-xl text-argos-black mb-8">
                 General Enquiry
@@ -267,7 +286,6 @@ export default function Contact() {
           </p>
           <Link to="/submit-mandate" className="btn-primary">
             Submit a Confidential Mandate
-            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

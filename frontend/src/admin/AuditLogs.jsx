@@ -37,7 +37,7 @@ export default function AuditLogs() {
               {logs.map((log) => (
                 <tr key={log.id} className="border-b border-[#1a1a1a] hover:bg-[#111]">
                   <td className="py-3 px-3 text-gray-400 text-xs whitespace-nowrap">
-                    {log.createdAt ? new Date(log.createdAt).toLocaleString() : '-'}
+                    {log.created_at ? new Date(log.created_at).toLocaleString() : '-'}
                   </td>
                   <td className="py-3 px-3 text-white text-xs">{log.user || log.userEmail || '-'}</td>
                   <td className="py-3 px-3">

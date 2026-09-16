@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
+import BackLink from '../../components/BackLink'
 import { Helmet } from 'react-helmet-async'
-import { ArrowRight, Search, Shield, Globe, BarChart3, Bot, Puzzle } from 'lucide-react'
+import { Search, Shield, Globe, BarChart3, Radar, Network } from 'lucide-react'
 
 const products = [
   {
@@ -13,7 +14,7 @@ const products = [
   },
   {
     name: 'Specialist Bulk',
-    description: 'Non-standard and niche bulk commodities that fall outside conventional trading desk coverage — sourced on demand.',
+    description: 'Non-standard and niche bulk commodities that fall outside conventional trading desk coverage, sourced on demand.',
   },
 ]
 
@@ -56,6 +57,7 @@ export default function SpecialistSourcing() {
         </div>
         <div className="container-argos relative z-10">
           <div className="max-w-3xl">
+            <BackLink to="/commodities" label="Back to Commodities" className="mb-6" />
             <p className="eyebrow text-argos-gray-light mb-6">Commodities</p>
             <h1 className="heading-display text-5xl sm:text-6xl lg:text-7xl mb-6">Specialist Sourcing</h1>
             <p className="text-lg text-argos-gray-light leading-relaxed max-w-2xl">
@@ -77,10 +79,10 @@ export default function SpecialistSourcing() {
             </div>
             <div className="flex flex-col justify-center">
               <p className="text-argos-gray text-base leading-relaxed mb-4">
-                Our AI-powered sourcing systems are built to identify supply for commodities that fall outside conventional trading coverage. When a buyer needs something specific — a non-standard specification, an unusual origin, or a material that does not appear on standard trade platforms — our specialist desk goes to work.
+                Our AI-powered sourcing systems are built to identify supply for commodities that fall outside conventional trading coverage. When a buyer needs something specific, a non-standard specification, an unusual origin, or a material that does not appear on standard trade platforms, our specialist desk goes to work.
               </p>
               <p className="text-argos-gray text-base leading-relaxed">
-                We do not claim to trade everything. But if it exists in bulk, has a market, and someone needs it sourced — we have the tools and network to find it. This is where technology meets commodity expertise.
+                We do not claim to trade everything. But if it exists in bulk, has a market, and someone needs it sourced, we have the tools and network to find it. This is where technology meets commodity expertise.
               </p>
             </div>
           </div>
@@ -95,22 +97,22 @@ export default function SpecialistSourcing() {
               <p className="eyebrow mb-4">Approach</p>
               <h2 className="heading-section text-3xl lg:text-4xl mb-6">Technology-driven sourcing</h2>
               <p className="text-argos-gray text-base leading-relaxed mb-4">
-                Our systems continuously monitor global trade flows, production data and supplier networks. When a non-standard request arrives, we cross-reference available supply against the specific requirements — matching origin, specification, volume and logistics to identify viable options.
+                Our systems continuously monitor global trade flows, production data and supplier networks. When a non-standard request arrives, we cross-reference available supply against the specific requirements, matching origin, specification, volume and logistics to identify viable options.
               </p>
               <p className="text-argos-gray text-base leading-relaxed">
-                This is not algorithmic trading. It is technology-assisted human expertise — our team validates every lead, verifies every supplier and manages every transaction.
+                This is not algorithmic trading. It is technology-assisted human expertise, our team validates every lead, verifies every supplier and manages every transaction.
               </p>
             </div>
             <div className="flex flex-col gap-8 justify-center">
               <div className="flex items-start gap-4">
-                <Bot className="w-6 h-6 text-argos-accent shrink-0 mt-0.5" />
+                <Radar className="w-6 h-6 text-argos-accent shrink-0 mt-0.5" />
                 <div>
                   <h3 className="font-heading font-semibold text-sm mb-1">AI Pattern Recognition</h3>
                   <p className="text-argos-gray text-sm leading-relaxed">Systems that identify supply patterns across fragmented global markets.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <Puzzle className="w-6 h-6 text-argos-accent shrink-0 mt-0.5" />
+                <Network className="w-6 h-6 text-argos-accent shrink-0 mt-0.5" />
                 <div>
                   <h3 className="font-heading font-semibold text-sm mb-1">Network Mapping</h3>
                   <p className="text-argos-gray text-sm leading-relaxed">Mapping of producer, trader and logistics networks to find non-obvious supply routes.</p>
@@ -133,6 +135,13 @@ export default function SpecialistSourcing() {
         <div className="container-argos">
           <p className="eyebrow mb-4">Products</p>
           <h2 className="heading-section text-3xl lg:text-4xl mb-12">Current focus areas</h2>
+          <div className="mb-12 overflow-hidden">
+            <img
+              src="/images/commodities/specialist-sulphur.jpg"
+              alt="Specialist bulk material in storage"
+              className="w-full h-56 sm:h-72 object-cover"
+            />
+          </div>
           <p className="text-argos-gray text-base leading-relaxed mb-8 max-w-2xl">
             Our specialist desk covers a wide range of materials. The following are current areas of active sourcing and supply.
           </p>
@@ -170,7 +179,7 @@ export default function SpecialistSourcing() {
                 </div>
                 <div className="border-l-2 border-argos-accent pl-6">
                   <h3 className="font-heading font-semibold text-sm mb-1">Global Network</h3>
-                  <p className="text-argos-gray text-sm">Our sourcing is not limited to established trade routes — we search wherever supply exists.</p>
+                  <p className="text-argos-gray text-sm">Our sourcing is not limited to established trade routes, we search wherever supply exists.</p>
                 </div>
               </div>
             </div>
@@ -226,21 +235,20 @@ export default function SpecialistSourcing() {
         </div>
       </section>
 
-      {/* Active Opportunities */}
+      {/* Mandate CTA */}
       <section className="section-padding py-20 lg:py-28 bg-argos-dark text-white">
         <div className="container-argos">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="eyebrow text-argos-gray-light mb-4">Live opportunities</p>
-              <h2 className="heading-section text-3xl lg:text-4xl mb-4">Active Specialist Desk</h2>
+              <p className="eyebrow text-argos-gray-light mb-4">Get started</p>
+              <h2 className="heading-section text-3xl lg:text-4xl mb-4">Have a specialist sourcing need?</h2>
               <p className="text-argos-gray-light text-base leading-relaxed">
-                Current specialist tenders and sourcing requests updated in real time.
+                Tell us what you're looking to source. Our desk will identify specialist tenders and sourcing opportunities that match your requirements.
               </p>
             </div>
             <div className="flex lg:justify-end">
-              <Link to="/active-desk" className="btn-primary">
-                View Active Desk
-                <ArrowRight className="w-4 h-4" />
+              <Link to="/submit-mandate" className="btn-primary">
+                Submit a Mandate
               </Link>
             </div>
           </div>
@@ -261,7 +269,6 @@ export default function SpecialistSourcing() {
             <div className="flex lg:justify-end">
               <Link to="/markets/intelligence" className="btn-secondary">
                 Explore Intelligence
-                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -281,7 +288,6 @@ export default function SpecialistSourcing() {
                 className="bg-argos-gray-lightest p-6 hover:bg-white transition-colors duration-300 group"
               >
                 <h3 className="font-heading font-semibold text-sm mb-2 group-hover:text-argos-accent transition-colors">{item.name}</h3>
-                <ArrowRight className="w-4 h-4 text-argos-gray-light group-hover:text-argos-accent transition-colors" />
               </Link>
             ))}
           </div>
@@ -298,7 +304,6 @@ export default function SpecialistSourcing() {
           </p>
           <Link to="/submit-mandate" className="btn-primary">
             Submit Mandate
-            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

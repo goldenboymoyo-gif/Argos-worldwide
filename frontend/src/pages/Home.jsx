@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom'
 import {
-  ArrowRight,
-  ArrowUpRight,
   Shield,
   Search,
   Globe2,
@@ -9,11 +7,14 @@ import {
   Zap,
   Users,
   BarChart3,
-  FileCheck,
   Send,
-  MapPin,
+  Phone,
   TrendingUp,
   TrendingDown,
+  ClipboardList,
+  Radar,
+  Handshake,
+  CheckCircle2,
 } from 'lucide-react'
 
 const tickerData = [
@@ -55,10 +56,10 @@ const introFeatures = [
 ]
 
 const capabilities = [
-  { label: 'Market Intelligence', description: 'Monitoring prices, supply chains, and geopolitical signals across commodity markets.' },
-  { label: 'Sourcing', description: 'Identifying and vetting suppliers across global production corridors.' },
-  { label: 'Counterparty Matching', description: 'Connecting serious buyers with credible, verified suppliers.' },
-  { label: 'Execution', description: 'Facilitating introductions, negotiations, and transaction completion.' },
+  { label: 'Market Intelligence', icon: BarChart3, description: 'Monitoring prices, supply chains, and geopolitical signals across commodity markets.' },
+  { label: 'Sourcing', icon: Globe2, description: 'Identifying and vetting suppliers across global production corridors.' },
+  { label: 'Counterparty Matching', icon: Users, description: 'Connecting serious buyers with credible, verified suppliers.' },
+  { label: 'Execution', icon: CheckCircle2, description: 'Facilitating introductions, negotiations, and transaction completion.' },
 ]
 
 const commodities = [
@@ -70,47 +71,12 @@ const commodities = [
   { name: 'Specialist Sourcing', path: '/commodities/specialist-sourcing', image: '/images/commodities/specialist-sulphur.jpg', description: 'Non-standard volumes, unusual specifications, hard-to-source materials.' },
 ]
 
-const tradeCorridors = [
-  'Africa',
-  'Middle East',
-  'Europe',
-  'Asia',
-  'Americas',
-]
-
-const activeDesks = [
-  {
-    commodity: 'WTI Crude',
-    route: 'Permian Basin → Rotterdam',
-    volume: '500,000 bbl/month',
-    status: 'Sourcing',
-  },
-  {
-    commodity: 'LNG',
-    route: 'Qatar → India',
-    volume: '300,000 MMBtu/month',
-    status: 'Matching',
-  },
-  {
-    commodity: 'Copper Cathode',
-    route: 'Chile → Shanghai',
-    volume: '2,500 MT',
-    status: 'Negotiation',
-  },
-  {
-    commodity: 'Arabica Coffee',
-    route: 'Colombia → Hamburg',
-    volume: '200 MT',
-    status: 'Sourcing',
-  },
-]
-
 const processSteps = [
-  { step: '01', label: 'Mandate' },
-  { step: '02', label: 'Research' },
-  { step: '03', label: 'Sourcing' },
-  { step: '04', label: 'Introduction' },
-  { step: '05', label: 'Execution' },
+  { label: 'Mandate', icon: ClipboardList, blurb: 'Tell us what you need to buy or sell.' },
+  { label: 'Research', icon: Radar, blurb: 'Our systems map the market before we move.' },
+  { label: 'Sourcing', icon: Globe2, blurb: 'We identify the right counterparties globally.' },
+  { label: 'Introduction', icon: Handshake, blurb: 'Buyer and seller connect, confidentially.' },
+  { label: 'Execution', icon: CheckCircle2, blurb: 'We stay involved through to completion.' },
 ]
 
 const people = [
@@ -118,11 +84,19 @@ const people = [
     name: 'Arthur Blackwell',
     role: 'Outreach',
     email: 'arthur@argosworldwide.com',
+    photo: '/images/about/team/arthur.jpg',
   },
   {
-    name: 'Ben Norton',
+    name: 'Benjamin Norton',
     role: 'Broker',
-    email: 'ben@argosworldwide.com',
+    email: 'benjaminnorton96@gmail.com',
+    photo: '/images/about/team/benjamin.jpg',
+  },
+  {
+    name: 'Bright Moyo',
+    role: 'Technician',
+    email: 'goldenboymoyo@gmail.com',
+    photo: '/images/about/team/bright.jpg',
   },
 ]
 
@@ -164,7 +138,7 @@ export default function Home() {
             </h1>
 
             <p className="text-argos-gray-light text-base sm:text-lg max-w-[620px] leading-relaxed mb-12">
-              Argos Worldwide connects commodity buyers with the right suppliers — anywhere in the world.
+              Argos Worldwide connects commodity buyers with the right suppliers, anywhere in the world.
               Our AI systems surface the intelligence. Our brokers make it happen.
               The precision of technology, the trust of a handshake.
             </p>
@@ -172,11 +146,9 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/submit-mandate" className="btn-primary">
                 OPEN A PRIVATE DESK
-                <ArrowRight className="w-4 h-4" />
               </Link>
               <Link to="/commodities" className="btn-secondary !border-white !text-white hover:!bg-white hover:!text-argos-black">
                 EXPLORE OUR MARKETS
-                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -188,7 +160,7 @@ export default function Home() {
         <div className="py-3 overflow-hidden">
           <div className="flex items-center gap-2 mb-2 section-padding">
             <span className="text-[0.625rem] tracking-[0.15em] uppercase text-argos-gray font-medium">
-              Market Data — Reference Prices
+              Market Data, Reference Prices
             </span>
             <span className="text-[0.625rem] tracking-[0.1em] uppercase text-argos-gray-light ml-1">
               Connection Pending
@@ -268,16 +240,13 @@ export default function Home() {
               className="text-xs font-medium tracking-[0.1em] uppercase text-argos-gray hover:text-argos-black transition-colors inline-flex items-center gap-2 shrink-0"
             >
               Learn more
-              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-argos-gray-lighter">
-            {capabilities.map((cap, i) => (
+            {capabilities.map((cap) => (
               <div key={cap.label} className="bg-white p-8 lg:p-10">
-                <span className="text-[0.625rem] font-medium text-argos-accent tracking-[0.1em] mb-4 block">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
+                <cap.icon className="w-5 h-5 text-argos-accent mb-4" strokeWidth={1.5} />
                 <h3 className="font-heading font-semibold text-sm tracking-[0.02em] mb-3">
                   {cap.label}
                 </h3>
@@ -299,7 +268,7 @@ export default function Home() {
               COMMODITIES WE COVER
             </h2>
             <p className="text-argos-gray text-base leading-relaxed">
-              From energy to agriculture, metals to minerals — we operate across commodity classes
+              From energy to agriculture, metals to minerals, we operate across commodity classes
               and geographies.
             </p>
           </div>
@@ -324,48 +293,12 @@ export default function Home() {
                     <h3 className="font-heading font-semibold text-base tracking-[0.02em]">
                       {commodity.name}
                     </h3>
-                    <ArrowUpRight className="w-4 h-4 text-argos-gray-light group-hover:text-argos-black transition-colors shrink-0 mt-0.5" />
                   </div>
                   <p className="text-argos-gray text-[0.8125rem] leading-relaxed">
                     {commodity.description}
                   </p>
                 </div>
               </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 06 GLOBAL NETWORK ── */}
-      <section className="section-padding py-20 lg:py-28 bg-argos-gray-lightest">
-        <div className="container-argos">
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
-            <div>
-              <p className="eyebrow mb-4">Presence</p>
-              <h2 className="font-heading font-bold text-2xl sm:text-3xl lg:text-[2.5rem] tracking-tight leading-[1.1]">
-                GLOBAL NETWORK
-              </h2>
-            </div>
-            <Link
-              to="/global-network"
-              className="text-xs font-medium tracking-[0.1em] uppercase text-argos-gray hover:text-argos-black transition-colors inline-flex items-center gap-2 shrink-0"
-            >
-              View trade corridors
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-
-          <div className="flex flex-wrap gap-3">
-            {tradeCorridors.map((corridor) => (
-              <div
-                key={corridor}
-                className="inline-flex items-center gap-2 px-5 py-3 bg-white border border-argos-gray-lighter"
-              >
-                <MapPin className="w-3.5 h-3.5 text-argos-accent" strokeWidth={1.5} />
-                <span className="text-sm font-medium text-argos-charcoal tracking-[0.02em]">
-                  {corridor}
-                </span>
-              </div>
             ))}
           </div>
         </div>
@@ -382,12 +315,11 @@ export default function Home() {
               </h2>
               <p className="text-argos-gray text-base leading-relaxed mb-8 max-w-[480px]">
                 We monitor commodity markets, supply chain disruptions, price movements,
-                freight rates, FX shifts, and geopolitical developments — synthesising them
+                freight rates, FX shifts, and geopolitical developments, synthesising them
                 into a single view for our clients.
               </p>
               <Link to="/markets/intelligence" className="btn-primary">
                 View Intelligence
-                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
 
@@ -423,64 +355,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 08 ACTIVE DESK ── */}
-      <section className="section-padding py-20 lg:py-28 bg-argos-gray-lightest">
-        <div className="container-argos">
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
-            <div>
-              <p className="eyebrow mb-4">Live Mandates</p>
-              <h2 className="font-heading font-bold text-2xl sm:text-3xl lg:text-[2.5rem] tracking-tight leading-[1.1]">
-                ACTIVE DESK
-              </h2>
-            </div>
-            <Link
-              to="/active-desk"
-              className="text-xs font-medium tracking-[0.1em] uppercase text-argos-gray hover:text-argos-black transition-colors inline-flex items-center gap-2 shrink-0"
-            >
-              View all mandates
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-
-          <div className="bg-white border border-argos-gray-lighter">
-            {/* Table header */}
-            <div className="hidden md:grid grid-cols-[1fr_1.5fr_1fr_0.75fr] gap-4 px-8 py-4 border-b border-argos-gray-lighter bg-argos-gray-lightest">
-              <span className="text-[0.6875rem] font-medium tracking-[0.1em] uppercase text-argos-gray">Commodity</span>
-              <span className="text-[0.6875rem] font-medium tracking-[0.1em] uppercase text-argos-gray">Route</span>
-              <span className="text-[0.6875rem] font-medium tracking-[0.1em] uppercase text-argos-gray">Volume</span>
-              <span className="text-[0.6875rem] font-medium tracking-[0.1em] uppercase text-argos-gray">Status</span>
-            </div>
-
-            {/* Table rows */}
-            {activeDesks.map((desk, i) => (
-              <div
-                key={i}
-                className={`grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr_0.75fr] gap-2 md:gap-4 px-8 py-5 ${i < activeDesks.length - 1 ? 'border-b border-argos-gray-lighter' : ''}`}
-              >
-                <div>
-                  <span className="md:hidden text-[0.625rem] tracking-[0.1em] uppercase text-argos-gray mr-2">Commodity</span>
-                  <span className="text-sm font-medium text-argos-charcoal">{desk.commodity}</span>
-                </div>
-                <div>
-                  <span className="md:hidden text-[0.625rem] tracking-[0.1em] uppercase text-argos-gray mr-2">Route</span>
-                  <span className="text-sm text-argos-gray">{desk.route}</span>
-                </div>
-                <div>
-                  <span className="md:hidden text-[0.625rem] tracking-[0.1em] uppercase text-argos-gray mr-2">Volume</span>
-                  <span className="text-sm text-argos-gray">{desk.volume}</span>
-                </div>
-                <div>
-                  <span className="md:hidden text-[0.625rem] tracking-[0.1em] uppercase text-argos-gray mr-2">Status</span>
-                  <span className="inline-block px-3 py-1 text-[0.6875rem] font-medium tracking-[0.05em] uppercase bg-argos-gray-lightest text-argos-charcoal border border-argos-gray-lighter">
-                    {desk.status}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── 09 HOW WE WORK ── */}
       <section className="section-padding py-24 lg:py-32">
         <div className="container-argos">
@@ -496,57 +370,21 @@ export default function Home() {
               className="text-xs font-medium tracking-[0.1em] uppercase text-argos-gray hover:text-argos-black transition-colors inline-flex items-center gap-2 shrink-0"
             >
               Full process
-              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-argos-gray-lighter">
-            {processSteps.map((step, i) => (
-              <div key={step.step} className="bg-white p-8 lg:p-10 relative">
-                <span className="text-[2rem] lg:text-[2.5rem] font-heading font-bold text-argos-gray-lighter leading-none mb-4 block">
-                  {step.step}
-                </span>
-                <h3 className="font-heading font-semibold text-sm tracking-[0.02em]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-argos-gray-lighter">
+            {processSteps.map((step) => (
+              <div key={step.label} className="bg-white p-8 lg:p-10 flex flex-col">
+                <step.icon className="w-5 h-5 text-argos-accent mb-5" />
+                <h3 className="font-heading font-semibold text-sm tracking-[0.02em] mb-2">
                   {step.label}
                 </h3>
-                {i < processSteps.length - 1 && (
-                  <ArrowRight className="hidden lg:block absolute top-1/2 -right-3 w-5 h-5 text-argos-gray-lighter -translate-y-1/2 z-10 bg-white" />
-                )}
+                <p className="text-xs text-argos-gray leading-relaxed">
+                  {step.blurb}
+                </p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 10 INSIGHTS ── */}
-      <section className="section-padding py-20 lg:py-28 bg-argos-gray-lightest">
-        <div className="container-argos">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10 lg:gap-16 items-center">
-            <div>
-              <p className="eyebrow mb-4">Analysis</p>
-              <h2 className="font-heading font-bold text-2xl sm:text-3xl lg:text-[2.5rem] tracking-tight leading-[1.1] mb-4">
-                INSIGHTS
-              </h2>
-              <p className="text-argos-gray text-base leading-relaxed mb-8 max-w-[480px]">
-                Market analysis, commodity commentary, and trade intelligence — prepared by our
-                research and brokerage teams.
-              </p>
-              <Link
-                to="/insights"
-                className="btn-primary"
-              >
-                Read Insights
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-            <div className="hidden lg:block aspect-[4/3] overflow-hidden">
-              <img
-                src="/images/home/warehouse.jpg"
-                alt="Commodity warehouse and storage facility"
-                loading="lazy"
-                className="w-full h-full object-cover"
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -566,20 +404,29 @@ export default function Home() {
               className="text-xs font-medium tracking-[0.1em] uppercase text-argos-gray hover:text-argos-black transition-colors inline-flex items-center gap-2 shrink-0"
             >
               Meet the team
-              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-argos-gray-lighter max-w-[800px]">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-[1100px]">
             {people.map((person) => (
-              <div key={person.name} className="bg-white p-8 lg:p-10">
-                <h3 className="font-heading font-semibold text-base tracking-[0.02em] mb-1">
+              <div
+                key={person.name}
+                className="border border-argos-gray-lighter p-8 lg:p-10 flex flex-col items-center text-center"
+              >
+                <div className="w-20 h-20 rounded-full overflow-hidden mb-5 bg-argos-gray-lighter">
+                  <img
+                    src={person.photo}
+                    alt={person.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="eyebrow text-argos-accent mb-2">{person.role}</p>
+                <h3 className="font-heading font-semibold text-base tracking-[0.02em] mb-4">
                   {person.name}
                 </h3>
-                <p className="text-[0.8125rem] text-argos-gray mb-4">{person.role}</p>
                 <a
                   href={`mailto:${person.email}`}
-                  className="text-[0.8125rem] text-argos-charcoal hover:text-argos-accent transition-colors"
+                  className="text-[0.8125rem] text-argos-charcoal hover:text-argos-accent transition-colors break-all"
                 >
                   {person.email}
                 </a>
@@ -611,7 +458,6 @@ export default function Home() {
             </p>
             <Link to="/submit-mandate" className="btn-primary !bg-white !text-argos-black hover:!bg-argos-gray-lightest">
               START A MANDATE
-              <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -632,18 +478,18 @@ export default function Home() {
               </p>
               <div className="space-y-4">
                 <a
-                  href="mailto:info@argosworldwide.com"
+                  href="mailto:arthur@argosworldwide.com"
                   className="flex items-center gap-3 text-sm text-argos-charcoal hover:text-argos-accent transition-colors"
                 >
                   <Send className="w-4 h-4 text-argos-accent" strokeWidth={1.5} />
-                  info@argosworldwide.com
+                  arthur@argosworldwide.com
                 </a>
                 <a
-                  href="tel:+442012345678"
+                  href="tel:+263790016331"
                   className="flex items-center gap-3 text-sm text-argos-charcoal hover:text-argos-accent transition-colors"
                 >
-                  <FileCheck className="w-4 h-4 text-argos-accent" strokeWidth={1.5} />
-                  +44 (0) 20 1234 5678
+                  <Phone className="w-4 h-4 text-argos-accent" strokeWidth={1.5} />
+                  +263 79 001 6331
                 </a>
               </div>
             </div>
@@ -654,7 +500,6 @@ export default function Home() {
                 className="btn-primary"
               >
                 Full Contact
-                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>

@@ -17,15 +17,11 @@ const MarketIntelligence = lazy(() => import('./pages/markets/MarketIntelligence
 const CommodityPrices = lazy(() => import('./pages/markets/CommodityPrices'))
 const Freight = lazy(() => import('./pages/markets/Freight'))
 const MarketInsights = lazy(() => import('./pages/markets/MarketInsights'))
-const ActiveDesk = lazy(() => import('./pages/ActiveDesk'))
-const GlobalNetwork = lazy(() => import('./pages/GlobalNetwork'))
 const HowWeWork = lazy(() => import('./pages/HowWeWork'))
 const OurStory = lazy(() => import('./pages/about/OurStory'))
 const OurApproach = lazy(() => import('./pages/about/OurApproach'))
 const OurPeople = lazy(() => import('./pages/about/OurPeople'))
 const EthicsCompliance = lazy(() => import('./pages/about/EthicsCompliance'))
-const Insights = lazy(() => import('./pages/Insights'))
-const InsightArticle = lazy(() => import('./pages/InsightArticle'))
 const Contact = lazy(() => import('./pages/Contact'))
 const SubmitMandate = lazy(() => import('./pages/SubmitMandate'))
 const Privacy = lazy(() => import('./pages/legal/Privacy'))
@@ -60,15 +56,11 @@ export default function App() {
           <Route path="markets/prices" element={<CommodityPrices />} />
           <Route path="markets/freight" element={<Freight />} />
           <Route path="markets/insights" element={<MarketInsights />} />
-          <Route path="active-desk" element={<ActiveDesk />} />
-          <Route path="global-network" element={<GlobalNetwork />} />
           <Route path="how-we-work" element={<HowWeWork />} />
           <Route path="about/story" element={<OurStory />} />
           <Route path="about/approach" element={<OurApproach />} />
           <Route path="about/people" element={<OurPeople />} />
           <Route path="about/ethics" element={<EthicsCompliance />} />
-          <Route path="insights" element={<Insights />} />
-          <Route path="insights/:slug" element={<InsightArticle />} />
           <Route path="contact" element={<Contact />} />
           <Route path="submit-mandate" element={<SubmitMandate />} />
           <Route path="privacy" element={<Privacy />} />

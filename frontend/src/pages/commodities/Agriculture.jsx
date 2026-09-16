@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
+import BackLink from '../../components/BackLink'
 import { Helmet } from 'react-helmet-async'
-import { ArrowRight, Wheat, Shield, Globe, BarChart3, Truck, Sprout } from 'lucide-react'
+import { Wheat, Shield, Globe, BarChart3, Truck, Sprout } from 'lucide-react'
 
 const products = [
   {
@@ -61,6 +62,7 @@ export default function Agriculture() {
         </div>
         <div className="container-argos relative z-10">
           <div className="max-w-3xl">
+            <BackLink to="/commodities" label="Back to Commodities" className="mb-6" />
             <p className="eyebrow text-argos-gray-light mb-6">Commodities</p>
             <h1 className="heading-display text-5xl sm:text-6xl lg:text-7xl mb-6">Agriculture</h1>
             <p className="text-lg text-argos-gray-light leading-relaxed max-w-2xl">
@@ -82,7 +84,7 @@ export default function Agriculture() {
             </div>
             <div className="flex flex-col justify-center">
               <p className="text-argos-gray text-base leading-relaxed mb-4">
-                Argos Worldwide matches agricultural commodities from production regions to global demand centres. We cover the major grains, tropical softs and edible oils — sourcing from established producing nations and delivering to import-dependent markets.
+                Argos Worldwide matches agricultural commodities from production regions to global demand centres. We cover the major grains, tropical softs and edible oils, sourcing from established producing nations and delivering to import-dependent markets.
               </p>
               <p className="text-argos-gray text-base leading-relaxed">
                 Our role is to bridge the gap between harvest cycles and consumption patterns, coordinating logistics, quality verification and documentation to ensure reliable supply across seasons.
@@ -97,6 +99,13 @@ export default function Agriculture() {
         <div className="container-argos">
           <p className="eyebrow mb-4">Products</p>
           <h2 className="heading-section text-3xl lg:text-4xl mb-12">What we trade</h2>
+          <div className="mb-12 overflow-hidden">
+            <img
+              src="/images/commodities/agriculture-farm.jpg"
+              alt="Agricultural produce and grain crops"
+              className="w-full h-56 sm:h-72 object-cover"
+            />
+          </div>
           <div className="grid lg:grid-cols-3 gap-px bg-argos-gray-lighter">
             {products.map((product) => (
               <div key={product.category} className="bg-argos-gray-lightest p-8 hover:bg-white transition-colors duration-300">
@@ -171,15 +180,15 @@ export default function Agriculture() {
                 </div>
                 <div className="border-l-2 border-argos-accent pl-6">
                   <h3 className="font-heading font-semibold text-sm mb-1">South America</h3>
-                  <p className="text-argos-gray text-sm">Brazil and Argentina — global leaders in soybean, corn and sugar production.</p>
+                  <p className="text-argos-gray text-sm">Brazil and Argentina, global leaders in soybean, corn and sugar production.</p>
                 </div>
                 <div className="border-l-2 border-argos-accent pl-6">
                   <h3 className="font-heading font-semibold text-sm mb-1">Southeast Asia</h3>
-                  <p className="text-argos-gray text-sm">Indonesia and Malaysia — the world's primary palm oil producing region.</p>
+                  <p className="text-argos-gray text-sm">Indonesia and Malaysia, the world's primary palm oil producing region.</p>
                 </div>
                 <div className="border-l-2 border-argos-accent pl-6">
                   <h3 className="font-heading font-semibold text-sm mb-1">West Africa</h3>
-                  <p className="text-argos-gray text-sm">Côte d'Ivoire and Ghana — responsible for the majority of global cocoa output.</p>
+                  <p className="text-argos-gray text-sm">Côte d'Ivoire and Ghana, responsible for the majority of global cocoa output.</p>
                 </div>
               </div>
             </div>
@@ -235,21 +244,20 @@ export default function Agriculture() {
         </div>
       </section>
 
-      {/* Active Opportunities */}
+      {/* Mandate CTA */}
       <section className="section-padding py-20 lg:py-28 bg-argos-dark text-white">
         <div className="container-argos">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="eyebrow text-argos-gray-light mb-4">Live opportunities</p>
-              <h2 className="heading-section text-3xl lg:text-4xl mb-4">Active Agriculture Desk</h2>
+              <p className="eyebrow text-argos-gray-light mb-4">Get started</p>
+              <h2 className="heading-section text-3xl lg:text-4xl mb-4">Have an agriculture mandate?</h2>
               <p className="text-argos-gray-light text-base leading-relaxed">
-                Current agricultural tenders, cargo offers and RFQs updated in real time.
+                Tell us your volume, specification and timeline. Our desk will identify agricultural tenders, cargo offers and RFQs that match your requirements.
               </p>
             </div>
             <div className="flex lg:justify-end">
-              <Link to="/active-desk" className="btn-primary">
-                View Active Desk
-                <ArrowRight className="w-4 h-4" />
+              <Link to="/submit-mandate" className="btn-primary">
+                Submit a Mandate
               </Link>
             </div>
           </div>
@@ -270,7 +278,6 @@ export default function Agriculture() {
             <div className="flex lg:justify-end">
               <Link to="/markets/intelligence" className="btn-secondary">
                 Explore Intelligence
-                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -290,7 +297,6 @@ export default function Agriculture() {
                 className="bg-argos-gray-lightest p-6 hover:bg-white transition-colors duration-300 group"
               >
                 <h3 className="font-heading font-semibold text-sm mb-2 group-hover:text-argos-accent transition-colors">{item.name}</h3>
-                <ArrowRight className="w-4 h-4 text-argos-gray-light group-hover:text-argos-accent transition-colors" />
               </Link>
             ))}
           </div>
@@ -307,7 +313,6 @@ export default function Agriculture() {
           </p>
           <Link to="/submit-mandate" className="btn-primary">
             Submit Mandate
-            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

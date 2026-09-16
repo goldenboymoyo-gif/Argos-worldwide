@@ -1,22 +1,24 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
+import BackLink from '../../components/BackLink'
 
 export default function Privacy() {
   return (
     <>
       <Helmet>
-        <title>Privacy Policy — Argos Worldwide</title>
+        <title>Privacy Policy, Argos Worldwide</title>
         <meta name="description" content="Privacy Policy for Argos Worldwide commodity trading services." />
       </Helmet>
 
       <section className="section-padding py-24 lg:py-32">
         <div className="container-argos">
           <div className="max-w-3xl">
+            <BackLink to="/" label="Back to Home" variant="light" className="mb-4" />
             <p className="eyebrow text-argos-gray mb-4">Legal</p>
             <h1 className="heading-display text-3xl sm:text-4xl lg:text-5xl mb-4">
               Privacy Policy
             </h1>
-            <p className="text-sm text-argos-gray mb-2">Draft — Pending Legal Review</p>
+            <p className="text-sm text-argos-gray mb-2">Draft, Pending Legal Review</p>
             <p className="text-sm text-argos-gray mb-12">Last updated: {new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
 
             <div className="space-y-10 text-argos-charcoal leading-relaxed">

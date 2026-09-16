@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { ArrowRight, ShieldCheck, Send, CheckCircle } from 'lucide-react'
+import BackLink from '../components/BackLink'
+import { ShieldCheck, Send, CheckCircle } from 'lucide-react'
 
 const roleOptions = ['Buyer', 'Seller', 'Producer', 'Supplier', 'Off-taker', 'Other']
 const unitOptions = ['MT', 'BBL', 'Tons', 'kg', 'Units', 'Cargo']
@@ -84,7 +85,7 @@ export default function SubmitMandate() {
     return (
       <>
         <Helmet>
-          <title>Mandate Submitted — Argos Worldwide</title>
+          <title>Mandate Submitted, Argos Worldwide</title>
         </Helmet>
         <section className="section-padding pt-28 pb-16 lg:pt-36 lg:pb-24">
           <div className="container-argos max-w-2xl text-center">
@@ -106,9 +107,8 @@ export default function SubmitMandate() {
               </p>
             )}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link to="/active-desk" className="btn-primary">
-                View Active Desk
-                <ArrowRight className="w-4 h-4" />
+              <Link to="/contact" className="btn-primary">
+                Contact Us
               </Link>
               <Link to="/" className="btn-secondary">
                 Return Home
@@ -123,7 +123,7 @@ export default function SubmitMandate() {
   return (
     <>
       <Helmet>
-        <title>Submit a Confidential Mandate — Argos Worldwide</title>
+        <title>Submit a Confidential Mandate, Argos Worldwide</title>
         <meta name="description" content="Submit a confidential commodity trading mandate to Argos Worldwide. All submissions are treated with the highest level of confidentiality." />
       </Helmet>
 
@@ -131,6 +131,7 @@ export default function SubmitMandate() {
       <section className="section-padding pt-28 pb-12 lg:pt-36 lg:pb-16">
         <div className="container-argos">
           <div className="max-w-3xl">
+            <BackLink to="/" label="Back to Home" variant="light" className="mb-4" />
             <span className="eyebrow">Confidential Submission</span>
             <h1 className="heading-section text-4xl sm:text-5xl lg:text-6xl text-argos-black mt-4 mb-6">
               SUBMIT A CONFIDENTIAL MANDATE
@@ -373,7 +374,7 @@ export default function SubmitMandate() {
                           Click to upload or drag and drop
                         </p>
                         <p className="text-xs text-argos-gray-light mt-1">
-                          PDF, Word, Excel — max 10MB
+                          PDF, Word, Excel, max 10MB
                         </p>
                       </>
                     )}

@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { ArrowRight, ArrowUp, ArrowDown, Minus, WifiOff } from 'lucide-react'
+import BackLink from '../../components/BackLink'
+import { ArrowUp, ArrowDown, Minus, WifiOff } from 'lucide-react'
 
 const instruments = [
   { name: 'Brent Crude', symbol: 'BRN', price: '$83.27', change: 0.99, dir: 'up' },
@@ -36,13 +37,23 @@ export default function CommodityPrices() {
         <title>Commodity Prices | Argos Worldwide</title>
         <meta
           name="description"
-          content="Argos Worldwide commodity price reference data — energy, metals and agriculture. Reference figures, live feed pending."
+          content="Argos Worldwide commodity price reference data, energy, metals and agriculture. Reference figures, live feed pending."
         />
       </Helmet>
 
       {/* Hero */}
-      <section className="bg-argos-black text-white">
-        <div className="container-argos section-padding pt-28 lg:pt-40 pb-16 lg:pb-20">
+      <section className="relative bg-argos-black text-white overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/images/home/hero-poster.jpg"
+            alt="Bulk commodity cargo operations"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-argos-black/75" />
+          <div className="absolute inset-0 bg-gradient-to-t from-argos-black via-argos-black/50 to-transparent" />
+        </div>
+        <div className="container-argos section-padding pt-28 lg:pt-40 pb-16 lg:pb-20 relative z-10">
+          <BackLink to="/markets" label="Back to Markets" className="mb-5" />
           <p className="eyebrow text-argos-accent mb-5">Market Data</p>
           <h1 className="heading-display text-4xl sm:text-5xl lg:text-6xl mb-6">
             COMMODITY PRICES
@@ -153,7 +164,6 @@ export default function CommodityPrices() {
               </div>
               <Link to="/markets/intelligence" className="btn-secondary justify-center shrink-0">
                 Market Intelligence
-                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </div>

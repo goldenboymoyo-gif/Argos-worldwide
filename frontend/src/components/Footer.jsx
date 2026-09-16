@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowUpRight, Mail } from 'lucide-react'
+import { Mail, Phone } from 'lucide-react'
 
 const footerLinks = {
   Markets: [
@@ -17,12 +17,10 @@ const footerLinks = {
     { label: 'Market Insights', path: '/markets/insights' },
   ],
   Company: [
-    { label: 'Active Desk', path: '/active-desk' },
-    { label: 'Global Network', path: '/global-network' },
     { label: 'How We Work', path: '/how-we-work' },
     { label: 'Our Story', path: '/about/story' },
+    { label: 'Our Approach', path: '/about/approach' },
     { label: 'Our People', path: '/about/people' },
-    { label: 'Insights', path: '/insights' },
   ],
   Connect: [
     { label: 'Contact', path: '/contact' },
@@ -49,14 +47,21 @@ export default function Footer() {
                 <span className="font-heading font-bold text-sm tracking-[0.08em] uppercase">Argos Worldwide</span>
               </Link>
               <p className="text-[0.8125rem] leading-relaxed text-argos-gray-light max-w-sm mb-8">
-                Connecting commodity buyers with the right suppliers — anywhere in the world. The precision of technology, the trust of a handshake.
+                Connecting commodity buyers with the right suppliers, anywhere in the world. The precision of technology, the trust of a handshake.
               </p>
               <a
                 href="mailto:arthur@argosworldwide.com"
-                className="inline-flex items-center gap-2 text-[0.8125rem] text-argos-gray-light hover:text-white transition-colors duration-200"
+                className="inline-flex items-center gap-2 text-[0.8125rem] text-argos-gray-light hover:text-white transition-colors duration-200 mb-3"
               >
                 <Mail className="w-4 h-4" />
                 arthur@argosworldwide.com
+              </a>
+              <a
+                href="tel:+263790016331"
+                className="inline-flex items-center gap-2 text-[0.8125rem] text-argos-gray-light hover:text-white transition-colors duration-200"
+              >
+                <Phone className="w-4 h-4" />
+                +263 79 001 6331
               </a>
             </div>
 

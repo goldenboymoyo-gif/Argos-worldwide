@@ -57,7 +57,7 @@ export default function Contacts() {
             <tbody>
               {contacts.map((c) => (
                 <tr key={c.id} className="border-b border-[#1a1a1a] hover:bg-[#111]">
-                  <td className="py-3 px-3 text-gray-400">{new Date(c.createdAt).toLocaleDateString()}</td>
+                  <td className="py-3 px-3 text-gray-400">{new Date(c.created_at).toLocaleDateString()}</td>
                   <td className="py-3 px-3 text-white">{c.name}</td>
                   <td className="py-3 px-3 text-gray-300">{c.email}</td>
                   <td className="py-3 px-3 text-gray-300">{c.subject || '-'}</td>

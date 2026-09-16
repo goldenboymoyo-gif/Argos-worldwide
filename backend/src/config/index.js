@@ -35,4 +35,13 @@ export const config = {
     windowMs: process.env.RATE_WINDOW_MS || 15 * 60 * 1000,
     max: process.env.RATE_MAX || 300,
   },
+  mail: {
+    host: process.env.SMTP_HOST || '',
+    port: Number(process.env.SMTP_PORT || 587),
+    user: process.env.SMTP_USER || '',
+    pass: process.env.SMTP_PASS || '',
+    from: process.env.SMTP_FROM || 'Argos Worldwide Website <no-reply@argosworldwide.com>',
+    // Where contact/mandate submission notifications are sent.
+    notifyEmail: process.env.CONTACT_NOTIFY_EMAIL || 'arthur@argosworldwide.com',
+  },
 }

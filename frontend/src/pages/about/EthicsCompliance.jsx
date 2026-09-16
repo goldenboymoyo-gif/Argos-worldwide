@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Shield, Scale, FileCheck, Eye } from 'lucide-react'
+import BackLink from '../../components/BackLink'
+import { Shield, Scale, FileCheck, Eye } from 'lucide-react'
 
 const principles = [
   {
@@ -29,14 +30,24 @@ export default function EthicsCompliance() {
   return (
     <>
       <Helmet>
-        <title>Ethics & Compliance — Argos Worldwide</title>
+        <title>Ethics & Compliance, Argos Worldwide</title>
         <meta name="description" content="Argos Worldwide's commitment to ethical conduct and regulatory compliance in commodity trading." />
       </Helmet>
 
       {/* Hero */}
-      <section className="bg-argos-black text-white">
-        <div className="section-padding py-24 lg:py-32">
+      <section className="relative bg-argos-black text-white overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/images/home/warehouse.jpg"
+            alt="Warehouse and supply chain operations"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-argos-black/75" />
+          <div className="absolute inset-0 bg-gradient-to-t from-argos-black via-argos-black/50 to-transparent" />
+        </div>
+        <div className="section-padding py-24 lg:py-32 relative z-10">
           <div className="container-argos">
+            <BackLink to="/" label="Back to Home" className="mb-4" />
             <p className="eyebrow text-argos-gray-light mb-4">About Argos</p>
             <h1 className="heading-display text-4xl sm:text-5xl lg:text-6xl text-balance">
               ETHICS & COMPLIANCE
@@ -57,7 +68,7 @@ export default function EthicsCompliance() {
                 Argos Worldwide is committed to operating with integrity in all aspects of our business. Our compliance framework is designed to ensure adherence to applicable laws and regulations in the jurisdictions where we operate.
               </p>
               <p>
-                In the commodity trading industry, ethical conduct is not a matter of optics — it is a precondition for sustained business. Trust is the foundation of every transaction we facilitate, and we understand that trust is earned through consistent, verifiable behaviour over time.
+                In the commodity trading industry, ethical conduct is not a matter of optics, it is a precondition for sustained business. Trust is the foundation of every transaction we facilitate, and we understand that trust is earned through consistent, verifiable behaviour over time.
               </p>
             </div>
           </div>
@@ -135,7 +146,6 @@ export default function EthicsCompliance() {
             <div className="flex items-center gap-4">
               <Link to="/terms" className="btn-primary">
                 Terms of Use
-                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
               <Link to="/privacy" className="btn-secondary">
                 Privacy Policy
