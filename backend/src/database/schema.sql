@@ -69,6 +69,11 @@ CREATE TABLE IF NOT EXISTS mandates (
   updated_at TIMESTAMP DEFAULT NOW()
 );
 
+-- Add contact columns to pre-existing mandates tables (idempotent)
+ALTER TABLE mandates ADD COLUMN IF NOT EXISTS full_name VARCHAR(255);
+ALTER TABLE mandates ADD COLUMN IF NOT EXISTS contact_email VARCHAR(255);
+ALTER TABLE mandates ADD COLUMN IF NOT EXISTS company VARCHAR(255);
+
 -- Active Desk
 CREATE TABLE IF NOT EXISTS active_desk (
   id SERIAL PRIMARY KEY,
