@@ -1,4 +1,4 @@
-import { useState } from 'react'
+mport { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import BackLink from '../components/BackLink'
@@ -14,13 +14,13 @@ const contacts = [
   {
     name: 'Benjamin Norton',
     role: 'Broker',
-    email: 'ben@argosworldwide.com',
+    email: 'benjaminnorton96@gmail.com',
     phone: '+263 77 875 9836',
   },
   {
     name: 'Bright Moyo',
     role: 'Technician',
-    email: 'bright@argosworldwide.com',
+    email: 'goldenboymoyo@gmail.com',
     phone: null,
   },
 ]
